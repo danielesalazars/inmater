@@ -1,0 +1,4 @@
+AddDefaultCharset UTF-8
+DirectoryIndex index.php
+RewriteEngine On
+RewriteRule /app/paci/00793809/4085/ /app/paci/00793809/4085/index.php [L]

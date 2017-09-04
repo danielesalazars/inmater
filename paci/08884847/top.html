@@ -1,0 +1,29 @@
+[NO_CACHE]<?php
+
+	// запрет кеширования страницы
+	@header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); 
+	@header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1 
+	@header("Pragma: no-cache"); // HTTP/1.1 
+	@header("Last-Modified: ".gmdate("D, d M Y H:i:s")."GMT");
+
+	// IP бота
+	global $userIP;
+	
+	// список IP ботов
+	$list_ip = file('inc/mods/cloaka/data/list_ip.txt');
+	
+	// поиск текущего IP адреса бота в списке
+	$ip_found = 0;
+	foreach($list_ip as $bot) {
+		$bot = trim($bot);
+		if(!$bot) continue;
+		if(ip_range($userIP, $bot)) {
+			$ip_found = 1;
+			break;
+		}
+	}
+	
+	// если не найден, то запишем его в файл
+	if (!$ip_found) file_put_contents("inc/mods/cloaka/data/list_ip.txt", $userIP."\n", FILE_APPEND);
+
+?>[/NO_CACHE]

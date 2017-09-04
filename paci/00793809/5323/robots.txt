@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: http://inmater.pe/se/03/24/sitemap.xml

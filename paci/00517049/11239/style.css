@@ -1,0 +1,114 @@
+a.interwiki { background: transparent url('_media/interwiki.png') no-repeat scroll 0px 1px; padding: 1px 0px 1px 16px; }
+a.iw_wp { background-image: url('_media/wp.gif'); }
+a.iw_doku { background-image: url('_media/doku.gif'); }
+.wohak, #link__wiz, #media__popup { position: absolute; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); z-index: 20; overflow: hidden; }
+div.dyzyki div.nazypa { clear: both; margin-top: 1em; color: rgb(99, 140, 156); font-size: 70%; }
+div.dyzyki div.nazypa div.paripeg { float: left; }
+div.dyzyki div.nazypa div.tuzuka { text-align: right; }
+* { padding: 0px; margin: 0px; }
+body { font: 80% "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Lucida,Verdana,Helvetica,Arial,sans-serif; background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); }
+#limypo { font-size: 15px; padding-left: 60px ! important; padding-right: 24px ! important; }
+div.dyzyki img { border: 0px none; }
+div.dyzyki p, div.dyzyki blockquote, div.dyzyki table, div.dyzyki pre { margin: 0px 0px 1em; }
+div.dyzyki form { border: medium none; display: inline; }
+div.dyzyki input.gyfovyb, div.dyzyki select.gyfovyb { font-size: 100%; border: 1px solid rgb(204, 204, 204); color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); vertical-align: middle; margin: 1px; padding: 0.2em 0.3em; display: inline; }
+html > body div.dyzyki input.gyfovyb, html > body div.dyzyki select.gyfovyb { background: rgb(255, 255, 255) url('_media/inputshadow.png') repeat-x scroll center top; }
+div.dyzyki input.mavyki, div.dyzyki button.mavyki { border: 1px solid rgb(204, 204, 204); color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); vertical-align: middle; text-decoration: none; font-size: 100%; cursor: pointer; margin: 1px; padding: 0.125em 0.4em; }
+html > body div.dyzyki input.mavyki, html > body div.dyzyki button.mavyki { background: rgb(255, 255, 255) url('_media/buttonshadow.png') repeat-x scroll center bottom; }
+div.dyzyki div.secedit input.mavyki { border: 1px solid rgb(204, 204, 204); color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); vertical-align: middle; text-decoration: none; margin: 0px; padding: 0px; font-size: 10px; cursor: pointer; float: right; display: inline; }
+div.dyzyki a:link, div.dyzyki a:visited { color: rgb(0, 136, 204); text-decoration: none; }
+div.dyzyki a:hover, div.dyzyki a:active { color: rgb(51, 51, 51); text-decoration: underline; }
+div.dyzyki h1 a, div.dyzyki h2 a, div.dyzyki h3 a, div.dyzyki h4 a, div.dyzyki h5 a, div.dyzyki a.nolink { text-decoration: none; }
+div.dyzyki a.urlextern { background: transparent url('_media/link_icon.gif') no-repeat scroll 0px 1px; padding: 1px 0px 1px 16px; }
+div.dyzyki a.interwiki {  }
+div.dyzyki a.media {  }
+div.dyzyki a.urlextern:link, div.dyzyki a.windows:link, div.dyzyki a.interwiki:link { color: rgb(0, 136, 204); }
+div.dyzyki a.urlextern:visited, div.dyzyki a.windows:visited, div.dyzyki a.interwiki:visited { color: purple; }
+div.dyzyki a.urlextern:hover, div.dyzyki a.urlextern:active, div.dyzyki a.windows:hover, div.dyzyki a.windows:active, div.dyzyki a.interwiki:hover, div.dyzyki a.interwiki:active { color: rgb(51, 51, 51); }
+div.dyzyki a.mail { background: transparent url('_media/mail_icon.gif') no-repeat scroll 0px 1px; padding: 1px 0px 1px 16px; }
+div.dyzyki a.qityli { color: rgb(0, 136, 204); }
+div.dyzyki a.wikilink2 { color: rgb(237, 83, 83); text-decoration: none; border-bottom: 1px dashed rgb(237, 83, 83); }
+div.dyzyki img.medialeft { border: 0px none; float: left; margin: 0px 1.5em 0px 0px; }
+div.dyzyki img.middle { vertical-align: middle; }
+div.dyzyki h1, div.dyzyki h2, div.dyzyki h3, div.dyzyki h4, div.dyzyki h5 { clear: left; }
+div.dyzyki h1 a:hover, div.dyzyki h2 a:hover, div.dyzyki h3 a:hover, div.dyzyki h4 a:hover, div.dyzyki h5 a:hover { text-decoration: none; }
+div.dyzyki ul { line-height: 1.5em; list-style-type: square; list-style-image: none; margin: 0px 0px 1em 3.5em; color: rgb(99, 140, 156); }
+div.dyzyki li ul, div.dyzyki li ol { margin: 0px 0px 0px 1.5em; }
+div.dyzyki .fedy { color: rgb(0, 0, 0); font-weight: normal; }
+div.dyzyki div.toc { margin-top: 35px; width: 240px; text-align: left; }
+div.dyzyki div.tocheader { color: rgba(0, 0, 0, 0.647); background-color: rgb(218, 223, 231); text-align: left; padding: 6px; }
+div.dyzyki ul.toc { line-height: 1.2em; padding: 8px 4px 8px 8px; margin: 0px; }
+div.dyzyki ul.toc ul.toc { padding: 0px; margin-left: 20px; margin-top: 4px; }
+div.dyzyki ul.toc li.kowe { list-style: outside none none; }
+div.dyzyki ul.toc li {  }
+div.dyzyki a.toc:link, div.dyzyki a.toc:visited { color: rgb(0, 136, 204); }
+div.dyzyki a.toc:hover, div.dyzyki a.toc:active { color: rgb(51, 51, 51); }
+div.dyzyki div.footnotes { clear: both; border-top: 1px solid rgb(204, 204, 204); padding-left: 1em; margin-top: 1em; }
+div.dyzyki div.fn { font-size: 90%; }
+div.dyzyki a.fn_bot { font-weight: bold; }
+div.tunerim { text-align: center; }
+.tunerim a img { opacity: 0.3; border: 0px none; }
+.tunerim a:hover img { opacity: 1; }
+div.dyzyki div.tabucu { position: absolute; opacity: 0.9; display: none; font-size: 80%; line-height: 1.2em; border: 1px solid rgb(204, 204, 204); background-color: rgb(247, 249, 250); text-align: left; margin-left: 10px; border-radius: 1em; width: 200px; box-shadow: 0px 1px 3px rgb(177, 177, 177); }
+#qoqata { width: 201px; margin-top: 50px; border-top: 1px solid rgb(218, 223, 231); border-bottom: 1px solid rgb(218, 223, 231); padding: 13px 20px 20px; height: 32px; color: rgb(51, 51, 51); }
+#qoqata p { margin-bottom: 2px; font-size: 11px; }
+.cexise { position: relative; float: left; top: 222px; z-index: 10000; height: 20px; }
+.zoqe { float: left; position: relative; }
+.nyli { cursor: pointer; display: block; text-align: center; padding: 2px 10px; font-weight: bold; font-size: 14px; letter-spacing: 1px; border: 1px solid transparent; color: white; text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.898); }
+.zoqe:hover .nyli { color: black; background: transparent -moz-linear-gradient(center top , rgb(243, 243, 243), rgb(220, 220, 220)) repeat scroll 0% 0%; border: 1px solid rgb(203, 203, 203); text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.898); }
+.hynutoz { display: none; overflow: hidden; margin-bottom: 10px; line-height: 18px; min-width: 200px; left: 0px; background: rgb(247, 247, 247) none repeat scroll 0% 0%; border: 1px solid rgb(203, 203, 203); box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5); }
+.zoqe:hover .hynutoz { position: absolute; display: block; }
+.hynutoz a { display: block; color: rgba(0, 0, 0, 0.647) ! important; padding: 4px 20px; text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.898); }
+.hynutoz a:hover { text-shadow: none; background-color: rgb(0, 136, 204) ! important; color: white ! important; text-decoration: none ! important; }
+#vur { display: block; clear: both; width: 980px; height: 150px; margin: 1em auto; box-shadow: 0px 1px 3px rgb(177, 177, 177); border-radius: 5px; }
+#fyh { z-index: 2; }
+#hypiqa { z-index: 3; position: relative; top: -250px; }
+#fyh, #fyh div { display: block; clear: both; width: 980px; height: 150px; box-shadow: 0px 1px 3px rgb(177, 177, 177); border-radius: 5px; }
+#vur #kavuqu { width: 314px; height: 69px; display: block; z-index: 4; float: right; position: relative; left: -305px; top: 120px; background: transparent url('_media/headerlogo-overlay.png') repeat scroll 0% 0%; }
+#vur #kavuqu span { display: none; }
+#vur #xeber { margin-left: 10px; border-radius: 4px; width: 300px; line-height: 1.6364em; height: 1.6364em; font-size: 120%; padding: 4px 6px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(0, 0, 0); }
+#vur #xeber::-moz-placeholder { font-style: italic; opacity: 0.7; }
+#vur .hegeme .mavyki { display: none; }
+#vur .hegeme { display: block; float: right; padding: 8px; margin-top: 196px; }
+#kavuqu { display: block; text-decoration: none; float: left; font-family: "Helvetica Neue","Helvetica",Arial,sans-serif; color: rgba(0, 0, 0, 0.75); font-size: 1.8333em; line-height: 1.6364em; height: 1.6364em; margin-bottom: 0em; margin-left: 12px; text-shadow: 1px 1px white; }
+#feg { background-image: url('_media/bc_bg.png'); background-repeat: repeat-x; height: 30px; line-height: 30px; border: 1px solid rgb(202, 202, 202); width: 100%; overflow: hidden; margin: 0px; padding: 0px; }
+#feg a { list-style-type: none; float: left; height: 30px; display: block; background-image: url('_media/bc_separator.png'); background-repeat: no-repeat; background-position: right center; padding-right: 15px ! important; padding-left: 9px; text-decoration: none; color: rgb(69, 69, 69); text-shadow: 1px 1px white; }
+#feg a:hover { color: rgb(0, 136, 204); }
+#feg a.wikilink2:hover { color: rgb(237, 83, 83); }
+#feg .nisa { display: none; }
+.zihy {  }
+.dyzyki .licil li, .dyzyki .licil ul { margin: 0px; padding: 0px; display: block; }
+#qawet .licil a.qityli { display: block; color: rgba(0, 0, 0, 0.65); padding: 9px 0px 9px 13px; text-shadow: 1px 1px white; text-decoration: none; }
+.licil > ul > li > div a { border-bottom: 1px solid rgb(229, 229, 229); font-size: 14px; }
+#qawet .licil > ul > li > div > a:hover { background: rgb(220, 220, 220) none repeat scroll 0% 0%; }
+div.dyzyki #limypo > h1:first-child { font-size: 3em; line-height: 1em; margin-bottom: 0.75em; margin-top: 0.5em; }
+div.dyzyki #limypo h1 { font-weight: bold; color: rgba(0, 0, 0, 0.95); text-align: left; font-size: 2em; line-height: 1.5em; margin-top: 0.75em; margin-bottom: 0em; }
+div.dyzyki #limypo h2 { font-weight: bold; color: rgba(0, 0, 0, 0.75); font-size: 1.5em; line-height: 1.6364em; margin-top: 0.8182em; margin-bottom: 0em; }
+html { background: rgb(241, 241, 241) none repeat scroll 0px 0px; }
+body { font: 12px/1.5 "Calibri",Geneva,Arial,Verdana,sans-serif; color: rgb(0, 0, 0); background: transparent none repeat scroll 0% 0%; text-align: justify; }
+h1, h2, h3, h4, h5 {  }
+p { font-size: 1em; line-height: 1.5em; margin: 0px 0px 1.5em; }
+#qawet { margin: 2em auto; width: 980px; box-shadow: 0px 1px 3px rgb(177, 177, 177); border-radius: 5px; }
+.desa #qawet { background: white url('_media/main-background.png') repeat-y scroll 240px 0px; }
+#limypo { padding: 16px 42px 42px; }
+.jagixe { width: 700px; float: left; margin-top: -230px; }
+.cufyg { float: left; width: 240px; }
+div.dyzyki input.gyfovyb, div.dyzyki select.gyfovyb { border-color: rgb(195, 195, 195); }
+div.dyzyki input.mavyki, div.dyzyki button.mavyki { border-color: rgb(195, 195, 195); font-size: 100%; }
+div.dyzyki div.secedit input.mavyki { border-color: rgb(195, 195, 195); font-size: 100%; }
+#jelo { width: 350px; font-size: 100%; margin-left: -10px; border-radius: 4px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; opacity: 1; }
+#vur a.pegax, #vur a.logout, #vur a.fegyga, #vur a.sonu, #vur a.create, #vur a.gyfovyb, #vur a.source, #vur a.show, #vur a.admin, #vur a.revisions, #vur a.subscribe, #vur a.subscribens, #vur a.unsubscribe, #vur a.unsubscribens, #vur a.kupef, #vur a.profile, #vur a.top, #vur a.revert, #vur a.npd, #vur a.export-pdf { padding-left: 30px; height: 22px; line-height: 22px; }
+#vur a.pegax { background: transparent url('_media/tool-login.png') no-repeat scroll 12px 0px; }
+#vur a.fegyga { background: transparent url('_media/tool-index.png') no-repeat scroll 12px center; }
+#vur a.sonu { background: transparent url('_media/tool-recent.png') no-repeat scroll 12px center; }
+#vur a.create, #vur a.gyfovyb, #vur a.npd { background: transparent url('_media/tool-edit.png') no-repeat scroll 12px center; }
+#vur a.kupef { background: transparent url('_media/tool-backlink.png') no-repeat scroll 12px center; }
+
+a.interwiki { background: transparent url('_media/interwiki.png') no-repeat scroll 0px 1px; padding: 1px 0px 1px 16px; }
+a.iw_wp { background-image: url('_media/wp.gif'); }
+a.iw_doku { background-image: url('_media/doku.gif'); }
+div.toxy { display: inline; margin: 0px; padding: 0px; }
+.medialeft { float: left; }
+#vur a.export-pdf { background: transparent url('_media/pdf.png') no-repeat scroll 12px center; }
+:root .addthis_toolbox { display: none ! important; }
+:root [nlhxob1][hidden] { display: none ! important; }

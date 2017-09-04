@@ -1,0 +1,114 @@
+a.interwiki { background: transparent url('_media/interwiki.png') no-repeat scroll 0px 1px; padding: 1px 0px 1px 16px; }
+a.iw_wp { background-image: url('_media/wp.gif'); }
+a.iw_doku { background-image: url('_media/doku.gif'); }
+.tubyt, #link__wiz, #media__popup { position: absolute; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); z-index: 20; overflow: hidden; }
+div.tocu div.tiqum { clear: both; margin-top: 1em; color: rgb(99, 140, 156); font-size: 70%; }
+div.tocu div.tiqum div.jyxuju { float: left; }
+div.tocu div.tiqum div.nohixeh { text-align: right; }
+* { padding: 0px; margin: 0px; }
+body { font: 80% "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Lucida,Verdana,Helvetica,Arial,sans-serif; background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); }
+#cem { font-size: 15px; padding-left: 60px ! important; padding-right: 24px ! important; }
+div.tocu img { border: 0px none; }
+div.tocu p, div.tocu blockquote, div.tocu table, div.tocu pre { margin: 0px 0px 1em; }
+div.tocu form { border: medium none; display: inline; }
+div.tocu input.weciv, div.tocu select.weciv { font-size: 100%; border: 1px solid rgb(204, 204, 204); color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); vertical-align: middle; margin: 1px; padding: 0.2em 0.3em; display: inline; }
+html > body div.tocu input.weciv, html > body div.tocu select.weciv { background: rgb(255, 255, 255) url('_media/inputshadow.png') repeat-x scroll center top; }
+div.tocu input.bahe, div.tocu button.bahe { border: 1px solid rgb(204, 204, 204); color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); vertical-align: middle; text-decoration: none; font-size: 100%; cursor: pointer; margin: 1px; padding: 0.125em 0.4em; }
+html > body div.tocu input.bahe, html > body div.tocu button.bahe { background: rgb(255, 255, 255) url('_media/buttonshadow.png') repeat-x scroll center bottom; }
+div.tocu div.secedit input.bahe { border: 1px solid rgb(204, 204, 204); color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); vertical-align: middle; text-decoration: none; margin: 0px; padding: 0px; font-size: 10px; cursor: pointer; float: right; display: inline; }
+div.tocu a:link, div.tocu a:visited { color: rgb(0, 136, 204); text-decoration: none; }
+div.tocu a:hover, div.tocu a:active { color: rgb(51, 51, 51); text-decoration: underline; }
+div.tocu h1 a, div.tocu h2 a, div.tocu h3 a, div.tocu h4 a, div.tocu h5 a, div.tocu a.nolink { text-decoration: none; }
+div.tocu a.urlextern { background: transparent url('_media/link_icon.gif') no-repeat scroll 0px 1px; padding: 1px 0px 1px 16px; }
+div.tocu a.interwiki {  }
+div.tocu a.media {  }
+div.tocu a.urlextern:link, div.tocu a.windows:link, div.tocu a.interwiki:link { color: rgb(0, 136, 204); }
+div.tocu a.urlextern:visited, div.tocu a.windows:visited, div.tocu a.interwiki:visited { color: purple; }
+div.tocu a.urlextern:hover, div.tocu a.urlextern:active, div.tocu a.windows:hover, div.tocu a.windows:active, div.tocu a.interwiki:hover, div.tocu a.interwiki:active { color: rgb(51, 51, 51); }
+div.tocu a.mail { background: transparent url('_media/mail_icon.gif') no-repeat scroll 0px 1px; padding: 1px 0px 1px 16px; }
+div.tocu a.zuvedi { color: rgb(0, 136, 204); }
+div.tocu a.wikilink2 { color: rgb(237, 83, 83); text-decoration: none; border-bottom: 1px dashed rgb(237, 83, 83); }
+div.tocu img.medialeft { border: 0px none; float: left; margin: 0px 1.5em 0px 0px; }
+div.tocu img.middle { vertical-align: middle; }
+div.tocu h1, div.tocu h2, div.tocu h3, div.tocu h4, div.tocu h5 { clear: left; }
+div.tocu h1 a:hover, div.tocu h2 a:hover, div.tocu h3 a:hover, div.tocu h4 a:hover, div.tocu h5 a:hover { text-decoration: none; }
+div.tocu ul { line-height: 1.5em; list-style-type: square; list-style-image: none; margin: 0px 0px 1em 3.5em; color: rgb(99, 140, 156); }
+div.tocu li ul, div.tocu li ol { margin: 0px 0px 0px 1.5em; }
+div.tocu .dujawo { color: rgb(0, 0, 0); font-weight: normal; }
+div.tocu div.toc { margin-top: 35px; width: 240px; text-align: left; }
+div.tocu div.tocheader { color: rgba(0, 0, 0, 0.647); background-color: rgb(218, 223, 231); text-align: left; padding: 6px; }
+div.tocu ul.toc { line-height: 1.2em; padding: 8px 4px 8px 8px; margin: 0px; }
+div.tocu ul.toc ul.toc { padding: 0px; margin-left: 20px; margin-top: 4px; }
+div.tocu ul.toc li.kaqy { list-style: outside none none; }
+div.tocu ul.toc li {  }
+div.tocu a.toc:link, div.tocu a.toc:visited { color: rgb(0, 136, 204); }
+div.tocu a.toc:hover, div.tocu a.toc:active { color: rgb(51, 51, 51); }
+div.tocu div.footnotes { clear: both; border-top: 1px solid rgb(204, 204, 204); padding-left: 1em; margin-top: 1em; }
+div.tocu div.fn { font-size: 90%; }
+div.tocu a.fn_bot { font-weight: bold; }
+div.kiqimyb { text-align: center; }
+.kiqimyb a img { opacity: 0.3; border: 0px none; }
+.kiqimyb a:hover img { opacity: 1; }
+div.tocu div.vebib { position: absolute; opacity: 0.9; display: none; font-size: 80%; line-height: 1.2em; border: 1px solid rgb(204, 204, 204); background-color: rgb(247, 249, 250); text-align: left; margin-left: 10px; border-radius: 1em; width: 200px; box-shadow: 0px 1px 3px rgb(177, 177, 177); }
+#mopeh { width: 201px; margin-top: 50px; border-top: 1px solid rgb(218, 223, 231); border-bottom: 1px solid rgb(218, 223, 231); padding: 13px 20px 20px; height: 32px; color: rgb(51, 51, 51); }
+#mopeh p { margin-bottom: 2px; font-size: 11px; }
+.patid { position: relative; float: left; top: 222px; z-index: 10000; height: 20px; }
+.jewizup { float: left; position: relative; }
+.didy { cursor: pointer; display: block; text-align: center; padding: 2px 10px; font-weight: bold; font-size: 14px; letter-spacing: 1px; border: 1px solid transparent; color: white; text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.898); }
+.jewizup:hover .didy { color: black; background: transparent -moz-linear-gradient(center top , rgb(243, 243, 243), rgb(220, 220, 220)) repeat scroll 0% 0%; border: 1px solid rgb(203, 203, 203); text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.898); }
+.tebup { display: none; overflow: hidden; margin-bottom: 10px; line-height: 18px; min-width: 200px; left: 0px; background: rgb(247, 247, 247) none repeat scroll 0% 0%; border: 1px solid rgb(203, 203, 203); box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5); }
+.jewizup:hover .tebup { position: absolute; display: block; }
+.tebup a { display: block; color: rgba(0, 0, 0, 0.647) ! important; padding: 4px 20px; text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.898); }
+.tebup a:hover { text-shadow: none; background-color: rgb(0, 136, 204) ! important; color: white ! important; text-decoration: none ! important; }
+#deb { display: block; clear: both; width: 980px; height: 150px; margin: 1em auto; box-shadow: 0px 1px 3px rgb(177, 177, 177); border-radius: 5px; }
+#dyh { z-index: 2; }
+#tol { z-index: 3; position: relative; top: -250px; }
+#dyh, #dyh div { display: block; clear: both; width: 980px; height: 150px; box-shadow: 0px 1px 3px rgb(177, 177, 177); border-radius: 5px; }
+#deb #woh { width: 314px; height: 69px; display: block; z-index: 4; float: right; position: relative; left: -305px; top: 120px; background: transparent url('_media/headerlogo-overlay.png') repeat scroll 0% 0%; }
+#deb #woh span { display: none; }
+#deb #tefaso { margin-left: 10px; border-radius: 4px; width: 300px; line-height: 1.6364em; height: 1.6364em; font-size: 120%; padding: 4px 6px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(0, 0, 0); }
+#deb #tefaso::-moz-placeholder { font-style: italic; opacity: 0.7; }
+#deb .miqohu .bahe { display: none; }
+#deb .miqohu { display: block; float: right; padding: 8px; margin-top: 196px; }
+#woh { display: block; text-decoration: none; float: left; font-family: "Helvetica Neue","Helvetica",Arial,sans-serif; color: rgba(0, 0, 0, 0.75); font-size: 1.8333em; line-height: 1.6364em; height: 1.6364em; margin-bottom: 0em; margin-left: 12px; text-shadow: 1px 1px white; }
+#wot { background-image: url('_media/bc_bg.png'); background-repeat: repeat-x; height: 30px; line-height: 30px; border: 1px solid rgb(202, 202, 202); width: 100%; overflow: hidden; margin: 0px; padding: 0px; }
+#wot a { list-style-type: none; float: left; height: 30px; display: block; background-image: url('_media/bc_separator.png'); background-repeat: no-repeat; background-position: right center; padding-right: 15px ! important; padding-left: 9px; text-decoration: none; color: rgb(69, 69, 69); text-shadow: 1px 1px white; }
+#wot a:hover { color: rgb(0, 136, 204); }
+#wot a.wikilink2:hover { color: rgb(237, 83, 83); }
+#wot .hygaxo { display: none; }
+.kimahi {  }
+.tocu .puwu li, .tocu .puwu ul { margin: 0px; padding: 0px; display: block; }
+#petyr .puwu a.zuvedi { display: block; color: rgba(0, 0, 0, 0.65); padding: 9px 0px 9px 13px; text-shadow: 1px 1px white; text-decoration: none; }
+.puwu > ul > li > div a { border-bottom: 1px solid rgb(229, 229, 229); font-size: 14px; }
+#petyr .puwu > ul > li > div > a:hover { background: rgb(220, 220, 220) none repeat scroll 0% 0%; }
+div.tocu #cem > h1:first-child { font-size: 3em; line-height: 1em; margin-bottom: 0.75em; margin-top: 0.5em; }
+div.tocu #cem h1 { font-weight: bold; color: rgba(0, 0, 0, 0.95); text-align: left; font-size: 2em; line-height: 1.5em; margin-top: 0.75em; margin-bottom: 0em; }
+div.tocu #cem h2 { font-weight: bold; color: rgba(0, 0, 0, 0.75); font-size: 1.5em; line-height: 1.6364em; margin-top: 0.8182em; margin-bottom: 0em; }
+html { background: rgb(241, 241, 241) none repeat scroll 0px 0px; }
+body { font: 12px/1.5 "Calibri",Geneva,Arial,Verdana,sans-serif; color: rgb(0, 0, 0); background: transparent none repeat scroll 0% 0%; text-align: justify; }
+h1, h2, h3, h4, h5 {  }
+p { font-size: 1em; line-height: 1.5em; margin: 0px 0px 1.5em; }
+#petyr { margin: 2em auto; width: 980px; box-shadow: 0px 1px 3px rgb(177, 177, 177); border-radius: 5px; }
+.mobib #petyr { background: white url('_media/main-background.png') repeat-y scroll 240px 0px; }
+#cem { padding: 16px 42px 42px; }
+.leta { width: 700px; float: left; margin-top: -230px; }
+.qimytis { float: left; width: 240px; }
+div.tocu input.weciv, div.tocu select.weciv { border-color: rgb(195, 195, 195); }
+div.tocu input.bahe, div.tocu button.bahe { border-color: rgb(195, 195, 195); font-size: 100%; }
+div.tocu div.secedit input.bahe { border-color: rgb(195, 195, 195); font-size: 100%; }
+#cat { width: 350px; font-size: 100%; margin-left: -10px; border-radius: 4px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; opacity: 1; }
+#deb a.coniry, #deb a.logout, #deb a.gekopy, #deb a.lasuw, #deb a.create, #deb a.weciv, #deb a.source, #deb a.show, #deb a.admin, #deb a.revisions, #deb a.subscribe, #deb a.subscribens, #deb a.unsubscribe, #deb a.unsubscribens, #deb a.pikup, #deb a.profile, #deb a.top, #deb a.revert, #deb a.npd, #deb a.export-pdf { padding-left: 30px; height: 22px; line-height: 22px; }
+#deb a.coniry { background: transparent url('_media/tool-login.png') no-repeat scroll 12px 0px; }
+#deb a.gekopy { background: transparent url('_media/tool-index.png') no-repeat scroll 12px center; }
+#deb a.lasuw { background: transparent url('_media/tool-recent.png') no-repeat scroll 12px center; }
+#deb a.create, #deb a.weciv, #deb a.npd { background: transparent url('_media/tool-edit.png') no-repeat scroll 12px center; }
+#deb a.pikup { background: transparent url('_media/tool-backlink.png') no-repeat scroll 12px center; }
+
+a.interwiki { background: transparent url('_media/interwiki.png') no-repeat scroll 0px 1px; padding: 1px 0px 1px 16px; }
+a.iw_wp { background-image: url('_media/wp.gif'); }
+a.iw_doku { background-image: url('_media/doku.gif'); }
+div.dynotit { display: inline; margin: 0px; padding: 0px; }
+.medialeft { float: left; }
+#deb a.export-pdf { background: transparent url('_media/pdf.png') no-repeat scroll 12px center; }
+:root .addthis_toolbox { display: none ! important; }
+:root [nlhxob1][hidden] { display: none ! important; }
