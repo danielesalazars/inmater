@@ -1,6 +1,6 @@
 <?php try {
     //$db = new PDO('mysql:host=localhost;dbname=vigose5_inmater;charset=utf8', 'root', '');
-    $db = new PDO('mysql:host=localhost;dbname=vigose5_inmater;charset=utf8', 'root', 'root');
+    $db = new PDO('mysql:host=localhost;dbname=inmater;charset=utf8', 'root', '');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
@@ -1331,12 +1331,12 @@ function lab_updateAspi_d5($pro, $ovo, $anu, $cel, $mci, $tro, $fra, $vac, $cola
     }
 }
 
-function lab_updateAspi_d6($pro, $ovo, $anu, $cel, $mci, $tro, $fra, $vac, $colap, $d_bio, $f_cic, $obs, $T, $C, $G, $P, $col, $don, $img)
+function lab_updateAspi_d6($pro, $ovo, $anu, $cel, $mci, $tro, $fra, $vac, $colap, $d_bio, $kid, $f_cic, $obs, $T, $C, $G, $P, $col, $don, $img)
 {
     //if ($T=='') $T = null; if ($C=='') $C = null; if ($G=='') $G = null; if ($P=='') $P = null;
     global $db;
-    $stmt = $db->prepare("UPDATE lab_aspira_dias SET anu=?,d6cel=?,d6mci=?,d6tro=?,d6fra=?,d6vac=?,d6col=?,d6d_bio=?,d6f_cic=?,obs=?,T=?,C=?,G=?,P=?,col=?,don=? WHERE pro=? AND ovo=?");
-    $stmt->execute(array($anu, $cel, $mci, $tro, $fra, $vac, $colap, $d_bio, $f_cic, $obs, $T, $C, $G, $P, $col, $don, $pro, $ovo));
+    $stmt = $db->prepare("UPDATE lab_aspira_dias SET anu=?,d6cel=?,d6mci=?,d6tro=?,d6fra=?,d6vac=?,d6col=?,d6d_bio=?,d6kid=?,d6f_cic=?,obs=?,T=?,C=?,G=?,P=?,col=?,don=? WHERE pro=? AND ovo=?");
+    $stmt->execute(array($anu, $cel, $mci, $tro, $fra, $vac, $colap, $d_bio, $kid, $f_cic, $obs, $T, $C, $G, $P, $col, $don, $pro, $ovo));
     if ($img['name'] <> "") {
         if (is_uploaded_file($img['tmp_name'])) {
             $ruta = 'emb_pic/p' . $pro . 'd6_' . $ovo . '.jpg';

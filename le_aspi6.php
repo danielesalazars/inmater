@@ -67,9 +67,7 @@
     </style>
     <script>
         $(document).ready(function () {
-
             $('#form1').submit(function () {
-
                 if ($("#Tra").val() == 1) {
                     if ($("#T_t_cat").val() == "") {
                         alert("Debe ingresar los datos de TRANSFERENCIA");
@@ -85,30 +83,23 @@
             // No close unsaved windows --------------------
             var unsaved = false;
             $(":input").change(function () {
-
                 unsaved = true;
-
             });
-
             $(window).on('beforeunload', function () {
                 if (unsaved) {
                     return 'UD. HA REALIZADO CAMBIOS';
                 }
             });
-
             // Form Submit
             $(document).on("submit", "form", function (event) {
                 // disable unload warning
                 $(window).off('beforeunload');
             });
-
             $(".med_insert").change(function () {
                 var med = $(this).attr("title");
                 var str = $('#' + med).val();
                 var items = $(this).val();
-
                 var n = str.indexOf(items);
-
                 if (n == -1) {	// no agrega duplicados -----------------------------------------------------
                     $('#' + med).val(items + ", " + str);
                     if (items == "Borrar") $('#' + med).val("");
@@ -172,27 +163,21 @@
                 }
             });
         });
-
     </script>
 </head>
-
 <body>
 <?php
 if (isSet($_POST['n_ovo']) and $_POST['guardar'] == "GUARDAR DATOS") {
     $c = $_POST['c'];
     if ($c > 0) {
         if ($_POST['don'] == 'D') $don = 1; else $don = 0;
-
         for ($i = 1; $i <= $c; $i++) {
-
             if ($_POST['anu' . $i] == 0 or $_POST['anu' . $i] == 7) {
                 $c2++;
                 if ($_POST['f_cic' . $i] == "O") $anu = 0; else {
                     $anu = 7;
                 }
-
-                lab_updateAspi_d6($_POST['pro'], $i, $anu, $_POST['cel' . $i], $_POST['mci' . $i], $_POST['tro' . $i], $_POST['fra' . $i], $_POST['vac' . $i], $_POST['colap' . $i], $_POST['d_bio' . $i], $_POST['f_cic' . $i], $_POST['obs' . $i], $_POST['T' . $i], $_POST['C' . $i], $_POST['G' . $i], $_POST['P' . $i], $_POST['col' . $i], $don, $_FILES['i' . $i]);
-
+                lab_updateAspi_d6($_POST['pro'], $i, $anu, $_POST['cel' . $i], $_POST['mci' . $i], $_POST['tro' . $i], $_POST['fra' . $i], $_POST['vac' . $i], $_POST['colap' . $i], $_POST['d_bio' . $i], $_POST['kid' . $i], $_POST['f_cic' . $i], $_POST['obs' . $i], $_POST['T' . $i], $_POST['C' . $i], $_POST['G' . $i], $_POST['P' . $i], $_POST['col' . $i], $don, $_FILES['i' . $i]);
             }
         }
     }
@@ -223,7 +208,7 @@ if ($_GET['id'] <> "") {
     $hombre = $rHombre->fetch(PDO::FETCH_ASSOC);
     if ($paci['p_dni'] == "") $pareja = "SOLTERA"; else $pareja = $hombre['p_ape'] . " " . $hombre['p_nom'];
 
-    $campos = "ovo,anu,d0est,d6cel,d6mci,d6tro,d6fra,d6vac,d6col,d6d_bio,d6f_cic,obs,T,C,G,P,col,des,don";
+    $campos = "ovo,anu,d0est,d6cel,d6mci,d6tro,d6fra,d6vac,d6col,d6d_bio,d6kid,d6f_cic,obs,T,C,G,P,col,des,don";
     $rAspi = $db->prepare("SELECT " . $campos . " FROM lab_aspira_dias WHERE pro=?");
     $rAspi->execute(array($id));
 
@@ -240,10 +225,12 @@ if ($_GET['id'] <> "") {
     $rMed->execute();
     ?>
     <?php if ($rTran->rowCount() > 0) { ?>
-    <script> $(document).ready(function () {
+    <script>
+        $(document).ready(function () {
             $('.tran').show();
             $('#Tra').val(1);
-        }); </script>
+        });
+    </script>
 <?php } ?>
 
 <?php if ($paci['tip'] == 'T') { // Traslado ?>
@@ -254,41 +241,40 @@ if ($_GET['id'] <> "") {
         });
     </script>
 <?php } ?>
-    <form action="le_aspi6.php?id=<?php echo $paci['pro']; ?>" method="post" enctype="multipart/form-data"
-          data-ajax="false" id="form1">
+    <form action="le_aspi6.php?id=<?php echo $paci['pro']; ?>" method="post" enctype="multipart/form-data" data-ajax="false" id="form1">
         <div data-role="page" class="ui-responsive-panel" id="le_aspi6">
-
             <div data-role="panel" id="indice_paci">
                 <img src="_images/logo.jpg"/>
                 <ul data-role="listview" data-inset="true" data-theme="a">
-                    <li data-role="list-divider"><h1><a href="lista_pro.php" rel="external" style="color:#000000">Lista
-                                de Procedimientos</a></h1></li>
+                    <li data-role="list-divider">
+                        <h1>
+                            <a href="lista_pro.php" rel="external" style="color:#000000">Lista de Procedimientos</a>
+                        </h1>
+                    </li>
                     <li><a href="<?php echo "le_aspi0.php?id=" . $paci['pro']; ?>" rel="external">Dia 0</a></li>
                     <li><a href="<?php echo "le_aspi1.php?id=" . $paci['pro']; ?>" rel="external">Dia 1</a></li>
                     <li><a href="<?php echo "le_aspi2.php?id=" . $paci['pro']; ?>" rel="external">Dia 2</a></li>
                     <li><a href="<?php echo "le_aspi3.php?id=" . $paci['pro']; ?>" rel="external">Dia 3</a></li>
                     <li><a href="<?php echo "le_aspi4.php?id=" . $paci['pro']; ?>" rel="external">Dia 4</a></li>
                     <li><a href="<?php echo "le_aspi5.php?id=" . $paci['pro']; ?>" rel="external">Dia 5</a></li>
-                    <li data-theme="b" class="ui-disabled"><a href="<?php echo "le_aspi6.php?id=" . $paci['pro']; ?>"
-                                                              rel="external">Dia 6</a></li>
+                    <li data-theme="b" class="ui-disabled">
+                        <a href="<?php echo "le_aspi6.php?id=" . $paci['pro']; ?>" rel="external">Dia 6</a>
+                    </li>
                 </ul>
                 <div data-role="collapsible" data-mini="true">
                     <h3>Historia Clínica</h3>
                     <ul data-role="listview">
-                        <li data-theme="b"><a href="<?php echo "e_paci.php?id=" . $paci['dni']; ?>" rel="external">Datos y
-                                Antecedentes</a></li>
-                        <li data-theme="b"><a href="<?php echo "n_pare.php?id=" . $paci['dni']; ?>"
-                                              rel="external">Pareja</a></li>
-                        <li data-theme="b"><a href="<?php echo "n_gine.php?id=" . $paci['dni']; ?>" rel="external">Ginecología</a>
+                        <li data-theme="b"><a href="<?php echo "e_paci.php?id=" . $paci['dni']; ?>" rel="external">Datos y Antecedentes</a></li>
+                        <li data-theme="b"><a href="<?php echo "n_pare.php?id=" . $paci['dni']; ?>" rel="external">Pareja</a></li>
+                        <li data-theme="b">
+                            <a href="<?php echo "n_gine.php?id=" . $paci['dni']; ?>" rel="external">Ginecología</a>
                         </li>
                         <li data-theme="b"><a href="<?php echo "n_obst.php?id=" . $paci['dni']; ?>" rel="external">Obstetricia</a>
                         </li>
-                        <li data-theme="b"><a href="<?php echo "n_repro.php?id=" . $paci['dni']; ?>" rel="external">Repro.
-                                Asistida</a></li>
+                        <li data-theme="b"><a href="<?php echo "n_repro.php?id=" . $paci['dni']; ?>" rel="external">Repro. Asistida</a></li>
                     </ul>
                 </div>
             </div><!-- /panel -->
-
             <div data-role="header" data-position="fixed">
                 <a href="#indice_paci" data-icon="bars" id="b_indice" class="ui-icon-alt" data-theme="a">MENU
                     <small>> Dia 6</small>
@@ -300,9 +286,7 @@ if ($_GET['id'] <> "") {
                    rel="external"> Salir</a>
                 <div style="background-color:#d7e5e5; width:100%; font-size:13px; text-align:center;"><?php echo $mujer['ape'] . " " . $mujer['nom'] . " (" . $paci['eda'] . ") / " . $pareja . " (Medico: " . $paci['med'] . ")" ?></div>
             </div><!-- /header -->
-
             <div class="ui-content" role="main">
-
                 <input type="hidden" name="n_ovo" value="<?php echo $paci['n_ovo']; ?>">
                 <input type="hidden" name="pro" id="pro" value="<?php echo $paci['pro']; ?>">
                 <!--id="pro" se usa en el javascript-->
@@ -473,7 +457,6 @@ if ($_GET['id'] <> "") {
                                 </td>
                             </tr>
                         </table>
-
                     </div>
                     <div class="enlinea libro">
                         Cuaderno: <input name="book" min="0" max="999" type="number" data-mini="true" id="book" value="<?php echo $paci['book']; ?>">
@@ -495,31 +478,32 @@ if ($_GET['id'] <> "") {
                         <?php } ?>
                     </div>
                     <div class="scroll_h">
-                        <table data-role="table" style="margin: 0 auto;font-size:small;"
-                               class="ui-responsive table-stroke">
+                        <table data-role="table" style="margin: 0 auto;font-size:small;" class="ui-responsive table-stroke">
                             <thead>
-                            <tr>
-                                <th>ID<br>Embrión</th>
-                                <th>Células</th>
-                                <th>MCI</th>
-                                <th>Trof.</th>
-                                <th>Frag.</th>
-                                <th>Vac.</th>
-                                <th>Colaps.</th>
-                                <th>Biopsia</th>
-                                <th>Fin Ciclo</th>
-                                <th></th>
-                            </tr>
+                                <tr>
+                                    <th>ID<br>Embrión</th>
+                                    <th>Células</th>
+                                    <th>MCI</th>
+                                    <th>Trof.</th>
+                                    <th>Frag.</th>
+                                    <th>Vac.</th>
+                                    <th>Colaps.</th>
+                                    <th>Biopsia</th>
+                                    <th>KID Score</th>
+                                    <th>Fin Ciclo</th>
+                                    <th></th>
+                                </tr>
                             </thead>
-                            <?php $c = 0;
-                            while ($aspi = $rAspi->fetch(PDO::FETCH_ASSOC)) {
-                                $c++; ?>
+                            <?php
+                                $c = 0;
+                                while ($aspi = $rAspi->fetch(PDO::FETCH_ASSOC)) {
+                                    $c++;
+                            ?>
                                 <tr <?php if ($aspi['anu'] > 0) {
                                     if ($aspi['d6f_cic'] == 'C') echo 'class="bg_C"';
                                     if ($aspi['d6f_cic'] == 'N') echo 'class="bg_N"';
                                     if ($aspi['d6f_cic'] == 'T') echo 'class="bg_T"';
                                 } ?> id="fila<?php echo $c; ?>">
-
                                     <?php if ($aspi['anu'] <> 0 and $aspi['anu'] < 7) { ?>
                                         <script>
                                             $(document).ready(function () {
@@ -527,14 +511,12 @@ if ($_GET['id'] <> "") {
                                             });
                                         </script>
                                     <?php } ?>
-
-                                    <td><input type="hidden" name="anu<?php echo $c; ?>"
-                                               value="<?php echo $aspi['anu']; ?>"><?php echo $aspi['ovo']; ?>
-                                    <td><select name="cel<?php echo $c; ?>" required class="val_defect"
-                                                title="<?php echo $c; ?>" data-mini="true">
-                                            <option value="MCi" <?php if ($aspi['d6cel'] == "MCi") echo "selected"; ?>>
-                                                MCi
-                                            </option>
+                                    <td>
+                                        <input type="hidden" name="anu<?php echo $c; ?>" value="<?php echo $aspi['anu']; ?>"><?php echo $aspi['ovo']; ?>
+                                    <!-- células -->
+                                    <td>
+                                        <select name="cel<?php echo $c; ?>" required class="val_defect" title="<?php echo $c; ?>" data-mini="true">
+                                            <option value="MCi" <?php if ($aspi['d6cel'] == "MCi") echo "selected";?> >MCi</option>
                                             <option value="MCc" <?php if ($aspi['d6cel'] == "MCc" or $aspi['d6cel'] == "") echo "selected"; ?>>
                                                 MCc
                                             </option>
@@ -549,7 +531,7 @@ if ($_GET['id'] <> "") {
                                             </option>
                                             <option value="BH" <?php if ($aspi['d6cel'] == "BH") echo "selected"; ?>>BH
                                             </option>
-                                            <option value="Deg" <?php if ($aspi['d6cel'] == "Deg") echo "selected"; ?>>
+                                            <option value="Deg" <?php if ($aspi['d6cel'] == "Deg") echo "selected";?> >
                                                 Deg
                                             </option>
                                             <option value="MF" <?php if ($aspi['d6cel'] == "MF") echo "selected"; ?>>MF
@@ -575,48 +557,64 @@ if ($_GET['id'] <> "") {
                                             <option value=2 <?php if ($aspi['d6cel'] == 2) echo "selected"; ?>>2</option>
                                             <option value=1 <?php if ($aspi['d6cel'] == 1) echo "selected"; ?>>1</option>
                                         </select></td>
-                                    <td><select name="mci<?php echo $c; ?>" id="mci<?php echo $c; ?>" data-mini="true">
+                                    <!-- mci -->
+                                    <td>
+                                        <select name="mci<?php echo $c; ?>" id="mci<?php echo $c; ?>" data-mini="true">
                                             <option value="" selected>---</option>
-                                            <option value="a" <?php if ($aspi['d6mci'] == "a") echo "selected"; ?>>a
-                                            </option>
-                                            <option value="b" <?php if ($aspi['d6mci'] == "b") echo "selected"; ?>>b
-                                            </option>
-                                            <option value="c" <?php if ($aspi['d6mci'] == "c") echo "selected"; ?>>c
-                                            </option>
-                                            <option value="d" <?php if ($aspi['d6mci'] == "d") echo "selected"; ?>>d
-                                            </option>
-                                            <option value="no" <?php if ($aspi['d6mci'] == "no") echo "selected"; ?>>no
-                                            </option>
-                                        </select></td>
-                                    <td><select name="tro<?php echo $c; ?>" id="tro<?php echo $c; ?>" data-mini="true">
+                                            <option value="a" <?php if ($aspi['d6mci'] == "a") echo "selected"; ?> >a</option>
+                                            <option value="b" <?php if ($aspi['d6mci'] == "b") echo "selected"; ?> >b</option>
+                                            <option value="c" <?php if ($aspi['d6mci'] == "c") echo "selected"; ?> >c</option>
+                                            <option value="d" <?php if ($aspi['d6mci'] == "d") echo "selected"; ?> >d</option>
+                                            <option value="no" <?php if ($aspi['d6mci'] == "no") echo "selected"; ?> >no</option>
+                                        </select>
+                                    </td>
+                                    <!-- trof -->
+                                    <td>
+                                        <select name="tro<?php echo $c; ?>" id="tro<?php echo $c; ?>" data-mini="true">
                                             <option value="" selected>---</option>
-                                            <option value="a" <?php if ($aspi['d6tro'] == "a") echo "selected"; ?>>a
-                                            </option>
-                                            <option value="b" <?php if ($aspi['d6tro'] == "b") echo "selected"; ?>>b
-                                            </option>
-                                            <option value="c" <?php if ($aspi['d6tro'] == "c") echo "selected"; ?>>c
-                                            </option>
-                                            <option value="d" <?php if ($aspi['d6tro'] == "d") echo "selected"; ?>>d
-                                            </option>
+                                            <option value="a" <?php if ($aspi['d6tro'] == "a") echo "selected"; ?> >a</option>
+                                            <option value="b" <?php if ($aspi['d6tro'] == "b") echo "selected"; ?> >b</option>
+                                            <option value="c" <?php if ($aspi['d6tro'] == "c") echo "selected"; ?> >c</option>
+                                            <option value="d" <?php if ($aspi['d6tro'] == "d") echo "selected"; ?> >d</option>
                                         </select></td>
-                                    <td><select name="fra<?php echo $c; ?>" id="fra<?php echo $c; ?>" data-mini="true">
+                                    <!-- frag -->
+                                    <td>
+                                        <select name="fra<?php echo $c; ?>" id="fra<?php echo $c; ?>" data-mini="true">
                                             <?php for ($i = 0; $i <= 100; $i = $i + 5) {
                                                 echo '<option value=' . $i;
                                                 if ($aspi['d6fra'] == $i) echo " selected";
                                                 echo '>' . $i . '%</option>';
                                             } ?>
-                                        </select></td>
-                                    <td><select name="vac<?php echo $c; ?>" id="vac" data-mini="true">
+                                        </select>
+                                    </td>
+                                    <!-- vac -->
+                                    <td>
+                                        <select name="vac<?php echo $c; ?>" id="vac" data-mini="true">
                                             <option value=0 selected>0</option>
                                             <option value=0 <?php if ($aspi['d6vac'] == 0) echo "selected"; ?>>0</option>
                                             <option value=1 <?php if ($aspi['d6vac'] == 1) echo "selected"; ?>>1</option>
                                             <option value=2 <?php if ($aspi['d6vac'] == 2) echo "selected"; ?>>2</option>
-                                        </select></td>
-                                    <td><input type="checkbox" name="colap<?php echo $c; ?>" id="colap" data-mini="true"
-                                               value=1 <?php if ($aspi['d6col'] == 1) echo "checked"; ?> data-role="none">
+                                        </select>
                                     </td>
-                                    <td><input type="checkbox" name="d_bio<?php echo $c; ?>" id="d_bio" data-mini="true"
-                                               value=1 <?php if ($aspi['d6d_bio'] == 1) echo "checked"; ?> data-role="none"></td>
+                                    <!-- colap -->
+                                    <td>
+                                        <input type="checkbox" name="colap<?php echo $c; ?>" id="colap" data-mini="true" value=1 <?php if ($aspi['d6col'] == 1) echo "checked"; ?> data-role="none">
+                                    </td>
+                                    <!-- biopsia -->
+                                    <td><input type="checkbox" name="d_bio<?php echo $c; ?>" id="d_bio" data-mini="true" value=1 <?php if ($aspi['d6d_bio'] == 1) echo "checked"; ?> data-role="none"></td>
+                                    <!-- campo nuevo -->
+                                    <td>
+                                        <select name="kid<?php echo $c; ?>" id="kid" data-mini="true">
+                                            <option value="0" selected>0</option>
+                                            <option value="1" <?php if ($aspi['d6kid'] == 1) echo "selected"; ?> >1</option>
+                                            <option value="2" <?php if ($aspi['d6kid'] == 2) echo "selected"; ?> >2</option>
+                                            <option value="3" <?php if ($aspi['d6kid'] == 3) echo "selected"; ?> >3</option>
+                                            <option value="4" <?php if ($aspi['d6kid'] == 4) echo "selected"; ?> >4</option>
+                                            <option value="5" <?php if ($aspi['d6kid'] == 5) echo "selected"; ?> >5</option>
+                                            <option value="6" <?php if ($aspi['d6kid'] == 6) echo "selected"; ?> >6</option>
+                                        </select>
+                                    </td>
+                                    <!-- fin ciclo -->
                                     <td class="enlinea">
                                         <script>$(document).ready(function () {
                                                 <?php if ($aspi['d6f_cic'] == "C") { ?>
@@ -627,11 +625,8 @@ if ($_GET['id'] <> "") {
                                             });</script>
                                         <select name="f_cic<?php echo $c; ?>" class="f_cic"
                                                 title="<?php echo $aspi['ovo']; ?>" id="<?php echo $c; ?>" data-mini="true">
-                                            <option value="T" <?php if ($aspi['d6f_cic'] == "T") echo "selected"; ?>>T
-                                            </option>
-                                            <option value="N" <?php if ($aspi['d6f_cic'] == "N" or $aspi['d6f_cic'] == "") echo "selected"; ?>>
-                                                NV
-                                            </option>
+                                            <option value="T" <?php if ($aspi['d6f_cic'] == "T") echo "selected"; ?>>T</option>
+                                            <option value="N" <?php if ($aspi['d6f_cic'] == "N" or $aspi['d6f_cic'] == "") echo "selected"; ?>>NV</option>
                                             <option value="C" <?php if ($aspi['d6f_cic'] == "C") echo "selected"; ?>>Crio
                                             </option>
                                         </select>
@@ -664,16 +659,15 @@ if ($_GET['id'] <> "") {
                                             </select>
                                         </div>
                                     </td>
-                                    <td><a href="#f<?php echo $c; ?>" data-rel="popup" data-transition="pop"
-                                           id="li<?php echo $c; ?>">Detalles <?php if ($aspi['obs'] <> "") echo " (Obs)"; ?></a>
+                                    <!-- detalles -->
+                                    <td>
+                                        <a href="#f<?php echo $c; ?>" data-rel="popup" data-transition="pop" id="li<?php echo $c; ?>">Detalles <?php if ($aspi['obs'] <> "") echo " (Obs)"; ?></a>
                                         <?php if (file_exists("emb_pic/p" . $paci['pro'] . "d6_" . $aspi['ovo'] . ".jpg"))
                                             echo "<br><a href='emb_pic/p" . $paci['pro'] . "d6_" . $aspi['ovo'] . ".jpg' target='new'> (Ver foto)</a>"; ?>
                                         <div data-role="popup" id="f<?php echo $c; ?>" class="ui-content"> Subir/Cambiar
                                             Foto (Embrion <?php echo $aspi['ovo']; ?>)
-                                            <input name="i<?php echo $c; ?>" type="file" accept="image/jpeg"
-                                                   data-mini="true" class="fotox"/> Observaciones<textarea
-                                                    name="obs<?php echo $c; ?>" id="obs"
-                                                    data-mini="true"><?php echo $aspi['obs']; ?></textarea>
+                                            <input name="i<?php echo $c; ?>" type="file" accept="image/jpeg" data-mini="true" class="fotox"/> Observaciones
+                                               <textarea name="obs<?php echo $c; ?>" id="obs" data-mini="true"><?php echo $aspi['obs']; ?></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -682,18 +676,13 @@ if ($_GET['id'] <> "") {
                         </table>
                     </div>
                 <?php } ?>
-
                 <input type="hidden" name="c" value="<?php echo $c; ?>">
                 <?php //if ($paci['f_fin']=="0000-00-00" or $paci['f_fin']==date("Y-m-d")) {
                 //if ($paci['dias']<=7 ) { ?>
-                <input name="guardar" type="Submit" id="guardar" value="GUARDAR DATOS" data-icon="check"
-                       data-iconpos="left" data-inline="true" data-theme="b" data-mini="true"/><a
-                        href="info_r.php?a=<?php echo $paci['pro'] . "&b=" . $paci['dni'] . "&c=" . $paci['p_dni']; ?>"
-                        target="new"
-                        class="ui-btn ui-shadow ui-corner-all ui-icon-info ui-btn-icon-notext ui-btn-b ui-btn-inline ui-mini">Informe</a>
+                <input name="guardar" type="Submit" id="guardar" value="GUARDAR DATOS" data-icon="check" data-iconpos="left" data-inline="true" data-theme="b" data-mini="true"/>
+                    <a href="info_r.php?a=<?php echo $paci['pro'] . "&b=" . $paci['dni'] . "&c=" . $paci['p_dni']; ?>" target="new" class="ui-btn ui-shadow ui-corner-all ui-icon-info ui-btn-icon-notext ui-btn-b ui-btn-inline ui-mini">Informe</a>
                 <?php //} //} ?>
-                <div data-role="popup" id="cargador" data-overlay-theme="b" data-dismissible="false"><p>GUARDANDO
-                        DATOS..</p></div>
+                <div data-role="popup" id="cargador" data-overlay-theme="b" data-dismissible="false"><p>GUARDANDO DATOS..</p></div>
             </div><!-- /content -->
         </div><!-- /page -->
     </form>

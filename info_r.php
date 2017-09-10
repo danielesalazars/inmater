@@ -132,34 +132,41 @@ if ($pop['dias'] >= 0) { //-----------------------------------Inicio de Fecundac
     $vg = 0;
     $atr = 0;
     while ($asp = $rAspi->fetch(PDO::FETCH_ASSOC)) {
-
         if ($pop['p_cri'] >= 1) {
             if ($asp['d0est'] == 'MII') $vitri++; // Para crio ovos MII es Numero de Vitrificados
             if ($asp['d0est'] == 'MI') $m1++;
             if ($asp['d0est'] == 'VG') $vg++;
             if ($asp['d0est'] == 'ATR') $atr++;
             if ($asp['d0f_cic'] == 'C')
-                $eval .= '<tr><th>'.$asp['ovo'].'</th><td>'.$asp['T'].'</td><td>'.$asp['C'].'</td><td>'.$asp['G'].'</td><td>'.$asp['P'].'</td></tr>';
+                $eval .= '
+                <tr>
+                    <th>'.$asp['ovo'].'</th>
+                    <td>'.$asp['T'].'</td>
+                    <td>'.$asp['C'].'</td>
+                    <td>'.$asp['G'].'</td>
+                    <td>'.$asp['P'].'</td>
+                </tr>';
         }
         if (file_exists("emb_pic/p" . $pro . "d0_" . $asp['ovo'] . ".jpg")) $fotos .= "<div style='float: left;width: 120px'><small>Ovulo: " . $asp['ovo'] . " Día 0</small><img src='emb_pic/p" . $pro . "d0_" . $asp['ovo'] . ".jpg' width='100' /></div>";
         if (file_exists("emb_pic/p" . $pro . "d1_" . $asp['ovo'] . ".jpg")) $fotos .= "<div style='float: left;width: 120px'><small>Embrión: " . $asp['ovo'] . " Día 1</small><img src='emb_pic/p" . $pro . "d1_" . $asp['ovo'] . ".jpg' width='100' /></div>";
 
-//Fecundados: MII y OBS
+        //Fecundados: MII y OBS
         if ($asp['d1est'] == 'MII' and $asp['d1f_cic'] == 'O' and $asp['d1c_pol'] == '2' and $asp['d1pron'] == '2') $pn2++;
-//NO Fecundados: MII y NV
+        //NO Fecundados: MII y NV
         if ($asp['d1est'] == 'MII' and $asp['d1f_cic'] == 'N' and (($asp['d1c_pol'] == '0' or $asp['d1c_pol'] == '1' or $asp['d1c_pol'] == '2') and ($asp['d1pron'] == '0' or $asp['d1pron'] == '1' or $asp['d1pron'] == '2'))) $no_fec++;
-//Triploides / multinucleado: MII y NV y ademas cp y pn mayor q 2 
+        //Triploides / multinucleado: MII y NV y ademas cp y pn mayor q 2 
         if ($asp['d1est'] == 'MII' and $asp['d1f_cic'] == 'N' and (($asp['d1c_pol'] == '3' or $asp['d1c_pol'] == '4' or $asp['d1c_pol'] == 'mult' or $asp['d1pron'] == '3' or $asp['d1pron'] == '4' or $asp['d1pron'] == 'mult'))) $pn3++;
-//Inmaduros: MI o VG
+        //Inmaduros: MI o VG
         if ($asp['d1est'] == 'VG' or $asp['d1est'] == 'MI' or $asp['d0est'] == 'VG' or $asp['d0est'] == 'MI') $inma++;
-//Atresicos: ATR
+        //Atresicos: ATR
         if ($asp['d1est'] == 'ATR' or $asp['d0est'] == 'ATR') $atre++;
-//Citolizados: CT
+        //Citolizados: CT
         if ($asp['d1est'] == 'CT' or $asp['d0est'] == 'CT') $ct++;
 
         if (($asp['d1f_cic'] == 'O' or $pop['tip'] == 'T' or $pop['des_dia'] >= 1) and $pop['dias'] >= 3) { // todos los ovos q pasan el dia 1 entran a la evaluacion del desarrollo
             $bio = 'No';
             $fin = '';
+
             if (is_null($pop['des_don']) and !is_null($pop['des_dia'])) { // si es TED o desc Ovulos muestra el id original
                 $Pro_c = $db->prepare("SELECT fec FROM lab_aspira WHERE pro=?");
                 $Pro_c->execute(array($asp['pro_c']));
@@ -183,6 +190,7 @@ if ($pop['dias'] >= 0) { //-----------------------------------Inicio de Fecundac
                     $eval .= '<td>' . $asp['d2cel'] . '-' . $asp['d2fra'] . '%-' . $asp['d2sim'] . '</td>';
                 } else $eval .= '<td>-</td>';
             }
+
             if ($pop['dias'] >= 4) {
                 if ($asp['d3f_cic'] == 'C') {
                     $c_C++;
@@ -199,6 +207,7 @@ if ($pop['dias'] >= 0) { //-----------------------------------Inicio de Fecundac
                     $eval .= '<td>' . $asp['d3cel'] . '-' . $asp['d3fra'] . '%-' . $asp['d3sim'] . '</td>';
                 } else $eval .= '<td>-</td>';
             }
+
             if ($pop['dias'] >= 5) {
                 if ($asp['d4f_cic'] == 'C') {
                     $c_C++;
@@ -214,6 +223,7 @@ if ($pop['dias'] >= 0) { //-----------------------------------Inicio de Fecundac
                     $eval .= '<td>' . $asp['d4cel'] . '-' . $asp['d4fra'] . '%-' . $asp['d4sim'] . '</td>';
                 } else $eval .= '<td>-</td>';
             }
+
             if ($pop['dias'] >= 6) {
                 if ($asp['d5f_cic'] == 'C') {
                     $c_C++;
@@ -233,6 +243,7 @@ if ($pop['dias'] >= 0) { //-----------------------------------Inicio de Fecundac
                         $eval .= '<td>' . $asp['d5cel'] . '</td>';
                 } else $eval .= '<td>-</td>';
             }
+
             if ($pop['dias'] >= 7) {
                 if ($asp['d6f_cic'] == 'C') {
                     $c_C++;
@@ -242,10 +253,17 @@ if ($pop['dias'] >= 0) { //-----------------------------------Inicio de Fecundac
                     $c_T++;
                     $fin = 'Transferido';
                 }
-                if ($asp['d6f_cic'] == 'N') $fin = 'NV';
-                if (file_exists("emb_pic/p" . $pro . "d6_" . $asp['ovo'] . ".jpg")) $fotos .= "<div style='float: left;width: 120px'><small>Embrión: " . $asp['ovo'] . " Día 6</small><img src='emb_pic/p" . $pro . "d6_" . $asp['ovo'] . ".jpg' width='100' /></div>";
+                if ($asp['d6f_cic'] == 'N')
+                    $fin = 'NV';
+                if (file_exists("emb_pic/p" . $pro . "d6_" . $asp['ovo'] . ".jpg"))
+                    $fotos .= "
+                    <div style='float: left;width: 120px'>
+                        <small>Embrión: " . $asp['ovo'] . " Día 6</small>
+                        <img src='emb_pic/p" . $pro . "d6_" . $asp['ovo'] . ".jpg' width='100' />
+                    </div>";
                 if ($asp['d6f_cic'] <> '') {
-                    if ($asp['d6d_bio'] == 1) $bio = 'Si';
+                    if ($asp['d6d_bio'] == 1)
+                        $bio = 'Si';
                     if ($asp['d6cel'] == 'BC' or $asp['d6cel'] == 'BE' or $asp['d6cel'] == 'BHI' or $asp['d6cel'] == 'BH')
                         $eval .= '<td>' . $asp['d6cel'] . '-' . $asp['d6mci'] . '-' . $asp['d6tro'] . '</td>';
                     else
@@ -253,9 +271,11 @@ if ($pop['dias'] >= 0) { //-----------------------------------Inicio de Fecundac
                 } else $eval .= '<td>-</td>';
             }
 
-
-            if ($fin == 'CRIO') $tanque = ' (' . $asp['T'] . '-' . $asp['C'] . '-' . $asp['G'] . '-' . $asp['P'] . ')'; else $tanque = '';
-            $eval .= '<td>' . $bio . '</td>';
+            if ($fin == 'CRIO')
+                $tanque = ' (' . $asp['T'] . '-' . $asp['C'] . '-' . $asp['G'] . '-' . $asp['P'] . ')';
+            else
+                $tanque = '';
+            $eval .= '<td>' . $bio . '</td><td>' . $asp['d6kid'] . '</td>';
             $eval .= '<td>' . $fin . $tanque . '</td></tr>';
         }
 
@@ -289,21 +309,24 @@ if ($pop['dias'] >= 0) { //-----------------------------------Inicio de Fecundac
     }
 
     if ($pop['p_cri'] >= 1) {
-        $html .= '<h4>DETALLE DE ÓVULOS</h4><blockquote><table style="text-align:center;">
-<tr>
-<th width="200" align="left">Vitrificados</th><td><b>' . $vitri . '</b></td>
-</tr>
-<tr>
-<th align="left">MI</th><td>' . $m1 . '</td>
-</tr>
-<tr>
-<th align="left">VG</th><td>' . $vg . '</td>
-</tr>
-<tr>
-<th align="left">Atresicos</th><td>' . $atr . '</td>
-</tr>
-</table></blockquote>';
-
+        $html .= '
+        <h4>DETALLE DE ÓVULOS</h4>
+        <blockquote>
+            <table style="text-align:center;">
+                <tr>
+                <th width="200" align="left">Vitrificados</th><td><b>' . $vitri . '</b></td>
+                </tr>
+                <tr>
+                <th align="left">MI</th><td>' . $m1 . '</td>
+                </tr>
+                <tr>
+                <th align="left">VG</th><td>' . $vg . '</td>
+                </tr>
+                <tr>
+                <th align="left">Atresicos</th><td>' . $atr . '</td>
+                </tr>
+            </table>
+        </blockquote>';
         $html .= '<h4>UBICACIÓN DE OVULOS VITRIFICADOS</h4><blockquote class="tabla"><table cellpadding="5" style="text-align:center;">';
         $html .= '<tr><th>ID Ovulo</th><th>Tanque</th><th>Canister</th><th>Gobelet</th><th>Pajuela</th></tr>' . $eval . '</table></blockquote>';
     }
@@ -316,18 +339,55 @@ if ($pop['dias'] >= 0) { //-----------------------------------Inicio de Fecundac
         if ($pop['fec6'] == '0000-00-00') $fec6 = '-'; else $fec6 = date("d/m", strtotime($pop['fec6']));
 
         $html .= '<h4>EVALUACIÓN DEL DESARROLLO</h4><blockquote class="tabla"><table cellpadding="5" style="text-align:center;">';
+
         if ($pop['dias'] == 3)
             $head_eval = '<th>DIA 2</th><th rowspan="2">Biopsia</th><th rowspan="2">OUT</th></tr><tr><td>' . $fec2 . '</td></tr>';
+
         if ($pop['dias'] == 4)
             $head_eval = '<th>DIA 2</th><th>DIA 3</th><th rowspan="2">Biopsia</th><th rowspan="2">OUT</th></tr><tr><td>' . $fec2 . '</td><td>' . $fec3 . '</td></tr>';
+
         if ($pop['dias'] == 5)
             $head_eval = '<th>DIA 2</th><th>DIA 3</th><th>DIA 4</th><th rowspan="2">Biopsia</th><th rowspan="2">OUT</th></tr><tr><td>' . $fec2 . '</td><td>' . $fec3 . '</td><td>' . $fec4 . '</td></tr>';
-        if ($pop['dias'] == 6)
-            $head_eval = '<th>DIA 2</th><th>DIA 3</th><th>DIA 4</th><th>DIA 5</th><th rowspan="2">Biopsia</th><th rowspan="2">OUT</th></tr><tr><td>' . $fec2 . '</td><td>' . $fec3 . '</td><td>' . $fec4 . '</td><td>' . $fec5 . '</td></tr>';
-        if ($pop['dias'] == 7)
-            $head_eval = '<th>DIA 2</th><th>DIA 3</th><th>DIA 4</th><th>DIA 5</th><th>DIA 6</th><th rowspan="2">Biopsia</th><th rowspan="2">OUT</th></tr><tr><td>' . $fec2 . '</td><td>' . $fec3 . '</td><td>' . $fec4 . '</td><td>' . $fec5 . '</td><td>' . $fec6 . '</td></tr>';
 
-        $html .= '<tr><th rowspan="2">ID<br>Embrión</th>' . $head_eval . $eval . '</table><p style="font-weight: bold;">Total Transferidos: ' . $c_T . ' &nbsp;&nbsp;&nbsp;Total Criopreservados: ' . $c_C . '</p></blockquote>';
+        if ($pop['dias'] == 6)
+            $head_eval = '
+                <th>DIA 2</th>
+                <th>DIA 3</th>
+                <th>DIA 4</th>
+                <th>DIA 5</th>
+                <th rowspan="2">Biopsia</th>
+                <th rowspan="2">OUT</th>
+                </tr>
+                <tr>
+                    <td>' . $fec2 . '</td>
+                    <td>' . $fec3 . '</td>
+                    <td>' . $fec4 . '</td>
+                    <td>' . $fec5 . '</td>
+                </tr>';
+
+        if ($pop['dias'] == 7)
+            $head_eval = '
+                <th>DIA 2</th>
+                <th>DIA 3</th>
+                <th>DIA 4</th>
+                <th>DIA 5</th>
+                <th>DIA 6</th>
+                <th rowspan="2">Biopsia</th>
+                <th rowspan="2">EMBRYOSCOPE</th>
+                <th rowspan="2">OUT</th>
+            </tr>
+            <tr>
+                <td>' . $fec2 . '</td>
+                <td>' . $fec3 . '</td>
+                <td>' . $fec4 . '</td>
+                <td>' . $fec5 . '</td>
+                <td>' . $fec6 . '</td>
+            </tr>';
+
+        $html .= '
+            <tr>
+                <th rowspan="2">ID<br>Embrión</th>' . $head_eval . $eval . '</table>
+        <p style="font-weight: bold;">Total Transferidos: ' . $c_T . ' &nbsp;&nbsp;&nbsp;Total Criopreservados: ' . $c_C . '</p></blockquote>';
     }
 } //--------------------Fin de Fecundacion y desarrollo -----------------------------------------------------------------------------------
 
