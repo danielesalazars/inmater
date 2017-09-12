@@ -367,11 +367,11 @@ if ($pop['dias'] >= 0) { //-----------------------------------Inicio de Fecundac
 
         if ($pop['dias'] == 7)
             $head_eval = '
-                <th>DIA 2</th>
-                <th>DIA 3</th>
-                <th>DIA 4</th>
-                <th>DIA 5</th>
-                <th>DIA 6</th>
+                <th>DIA<br>2</th>
+                <th>DIA<br>3</th>
+                <th>DIA<br>4</th>
+                <th>DIA<br>5</th>
+                <th>DIA<br>6</th>
                 <th rowspan="2">Biopsia</th>
                 <th rowspan="2">EMBRYOSCOPE</th>
                 <th rowspan="2">OUT</th>

@@ -187,7 +187,8 @@ if (isSet($_POST['n_ovo']) and $_POST['guardar'] == "GUARDAR DATOS") {
     if ($_POST['Tra'] == 1)
         lab_updateAspi_sta_T($_POST['Tra_id'], $_POST['pro'], 6, $_POST['T_t_cat'], $_POST['T_s_gui'], $_POST['T_s_cat'], $_POST['T_endo'], $_POST['T_inte'], $_POST['T_eco'], $_POST['T_med'], $_POST['T_emb'], $_POST['T_obs']);
 
-    if ($_POST['pro'] and $_FILES['vid_embry'] and $_FILES['pdf_embry']) lab_insertEmbry($_POST['pro'],$_FILES['vid_embry'],$_FILES['pdf_embry']);
+    if ($_POST['pro'] and $_FILES['vid_embry'] and $_FILES['pdf_embry'])
+        lab_insertEmbry($_POST['pro'],$_FILES['vid_embry'],$_FILES['pdf_embry']);
     lab_updateRepro2($_POST['rep'], $_POST['p_extras'], $_POST['obs'], $_POST['obs_med'], $_POST['book'], $_POST['hoja']);
     lab_updateAspi_fin($_POST['pro']);
 }
@@ -463,17 +464,21 @@ if ($_GET['id'] <> "") {
                         Hoja: <input name="hoja" min="0" max="99999" type="number" data-mini="true" id="hoja" value="<?php echo $paci['hoja']; ?>">
                         <?php if (strpos($paci['pago_extras'], "EMBRYOSCOPE") !== false) { ?>
                             <span class="embry" style="font-size: small">
-                        VIDEO Embryos: <?php if (file_exists("emb_pic/embryoscope_" . $paci['pro'] . ".mp4")) {
+                            VIDEO Embryos:
+                            <?php
+                                if (file_exists("emb_pic/embryoscope_" . $paci['pro'] . ".mp4")) {
                                     echo "<a href='emb_pic/embryoscope_" . $paci['pro'] . ".mp4' target='new'>(VER)</a>";
                                     $embry_requrid='';
-                                } else $embry_requrid='required'; ?>
-                                <input name="vid_embry" type="file" accept="video/mp4"
-                                       data-mini="true" <?php echo $embry_requrid ?>/>
-                                    PDF Embryos: <?php if (file_exists("emb_pic/embryoscope_" . $paci['pro'] . ".pdf")) {
-                                    echo "<a href='emb_pic/embryoscope_" . $paci['pro'] . ".pdf' target='new'>(VER)</a>";
-                                } ?>
-                                <input name="pdf_embry" type="file" accept="application/pdf"
-                                       data-mini="true"/>
+                                } else $embry_requrid='required';
+                            ?>
+                            <input name="vid_embry" type="file" accept="video/mp4" data-mini="true" <?php echo $embry_requrid ?>/>
+                                PDF Embryos:
+                                <?php
+                                    if (file_exists("emb_pic/embryoscope_" . $paci['pro'] . ".pdf")) {
+                                        echo "<a href='emb_pic/embryoscope_" . $paci['pro'] . ".pdf' target='new'>(VER)</a>";
+                                    }
+                                ?>
+                            <input name="pdf_embry" type="file" accept="application/pdf" data-mini="true"/>
                     </span>
                         <?php } ?>
                     </div>
