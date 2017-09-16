@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start();?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -285,12 +285,9 @@ $rEco->execute(array($id));
 
 if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/foto.gif"; else $foto_url = "paci/" . $paci['dni'] . "/foto.jpg?v=" . mt_rand(); ?>
 
-<form action="e_paci.php?id=<?php echo $paci['dni']; ?>" method="post" enctype="multipart/form-data" data-ajax="false"
-      name="form2">
+<form action="e_paci.php?id=<?php echo $paci['dni']; ?>" method="post" enctype="multipart/form-data" data-ajax="false" name="form2">
     <input type="hidden" name="dni" value="<?php echo $paci['dni']; ?>">
-
     <div data-role="page" class="ui-responsive-panel" id="e_paci">
-
         <div data-role="panel" id="indice_paci">
             <img src="_images/logo.jpg"/>
             <ul data-role="listview" data-inset="true" data-theme="a">
@@ -328,8 +325,18 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
                     <small>> Datos y Antecedentes</small>
                 </a>
                 <h2><?php echo $paci['ape']; ?>
-                    <small><?php echo $paci['nom'];
-                        if ($paci['fnac'] <> "0000-00-00") echo ' <a href="#popupBasic" data-rel="popup" data-transition="pop">(' . date_diff(date_create($paci['fnac']), date_create('today'))->y . ')</a>'; ?></small>
+                    <small>
+                        <?php
+                            echo $paci['nom'];
+                            //alerta para la nota
+                            $nota_color = "";
+                            if ($paci['nota'] != "") {
+                                $nota_color = "red";
+                            }
+                            if ($paci['fnac'] <> "0000-00-00")
+                                echo ' <a href="#popupBasic" data-rel="popup" data-transition="pop" style="color:'.$nota_color.';">(' . date_diff(date_create($paci['fnac']), date_create('today'))->y . ')</a>';
+                        ?>
+                    </small>
                 </h2>
                 <a href="index.php"
                    class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-power"
@@ -1418,7 +1425,6 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
                        data-msgtext="Agregando datos.." data-theme="b" data-inline="true"/>
             <?php } ?>
         </div> <!-- /content -->
-
     </div><!-- /page -->
     <?php } ?>
 </form>
@@ -1432,7 +1438,6 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
             alert("Debe llenar el campo 'Apellidos'");
             return false;
         }
-
         if ($('#m_inf').prop('checked')) {
 
             if (document.getElementById("m_inf1").value == "") {
@@ -1440,7 +1445,6 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
                 return false;
             }
         }
-
         if (document.getElementById("m_ale").value == "Medicamentada" || document.getElementById("m_ale").value == "Otra") {
 
             if (document.getElementById("m_ale1").value == "") {
@@ -1448,7 +1452,6 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
                 return false;
             }
         }
-
         var $this = $(this),
             theme = $this.jqmData("theme") || $.mobile.loader.prototype.options.theme,
             msgText = $this.jqmData("msgtext") || $.mobile.loader.prototype.options.text,
@@ -1463,16 +1466,15 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
             html: html
         });
     })
-        .on("click", ".hide-page-loading-msg", function () {
-            $.mobile.loading("hide");
-        });
+
+    .on("click", ".hide-page-loading-msg", function () {
+        $.mobile.loading("hide");
+    });
 
     $(function () {
         $("#alerta").prependTo(".ui-content");
         $('#alerta').delay(3000).fadeOut('slow');
-
     });//]]>
-
 </script>
 </body>
 </html>
