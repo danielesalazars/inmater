@@ -57,13 +57,9 @@
         }
     </style>
 </head>
-
 <body>
-
-
 <script>
     $(document).ready(function () {
-
         $("#p_iiu").change(function () {
             if ($(this).prop('checked')) {
                 $('#p_fiv,#p_icsi,#p_cri,#p_don,#p_od,#p_des').val("");
@@ -123,13 +119,11 @@
                 });
             }
         });
-
     });
-
     var descon = 0;
     var conta = 0;
-    $(document).on('change', '.deschk', function (ev) {
 
+    $(document).on('change', '.deschk', function (ev) {
         $("#des_dia").val($(this).attr("id")); // Esto define el dia de descongelacion segun el ultimo check q se presiono
         /* SE QUITA ESTE SCRIPT PARA QUE PERMITA SELECCIONAR CUALQUIER DIA DE DESCONGELACION
         if (descon == $(this).attr("id") || descon==0) {
@@ -180,7 +174,6 @@ if ($_POST['val_beta'] <> "" and $_POST['pro_beta'] <> "") {
 
 $fec = date("Y-m-d");
 if (isSet($_POST['dni']) && $_POST['boton_datos'] == "GUARDAR DATOS") {
-
     if ($_POST['cont'] >= 1) {
         for ($p = 1; $p <= $_POST['cont']; $p++) {
             $tan = explode("|", $_POST['c' . $p]);
@@ -280,10 +273,8 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
             <div data-role="tabs">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#one" data-ajax="false" class="ui-btn-active ui-btn-icon-left ui-icon-bullets">Repro.
-                                Asistidas</a></li>
-                        <li><a href="#two" data-ajax="false" class="ui-btn-icon-left ui-icon-edit">Nueva Repro.
-                                Asistida</a></li>
+                        <li><a href="#one" data-ajax="false" class="ui-btn-active ui-btn-icon-left ui-icon-bullets">Repro. Asistidas</a></li>
+                        <li><a href="#two" data-ajax="false" class="ui-btn-icon-left ui-icon-edit">Nueva Repro. Asistida</a></li>
                     </ul>
                 </div>
                 <div id="one">
@@ -379,9 +370,12 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
                                 $rCrio = $db->prepare("SELECT lab_aspira_dias.pro FROM hc_reprod,lab_aspira,lab_aspira_dias WHERE hc_reprod.id=lab_aspira.rep AND lab_aspira_dias.pro=lab_aspira.pro AND hc_reprod.id=? AND (lab_aspira_dias.d6f_cic='C' OR lab_aspira_dias.d5f_cic='C' OR lab_aspira_dias.d4f_cic='C' OR lab_aspira_dias.d3f_cic='C' OR lab_aspira_dias.d2f_cic='C' OR lab_aspira_dias.d0f_cic='C')");
                                 $rCrio->execute(array($repro['id'])); ?>
                                 <tr>
-                                    <th><?php if ($repro['cancela'] == 2) echo date("d-m-Y", strtotime($repro['fec'])); else { ?>
-                                            <a href='<?php echo "e_repro.php?id=" . $repro['id']; ?>'
-                                               rel="external"><?php echo date("d-m-Y", strtotime($repro['fec'])); ?></a><?php } ?>
+                                    <th>
+                                        <?php
+                                            if ($repro['cancela'] == 2)
+                                                echo date("d-m-Y", strtotime($repro['fec']));
+                                            else { ?>
+                                            <a href='<?php echo "e_repro.php?id=" . $repro['id']; ?>' rel="external"><?php echo date("d-m-Y", strtotime($repro['fec'])); ?></a><?php } ?>
                                     </th>
                                     <td><?php echo '<small>' . $pareja . '</small>';
                                         if ($repro['p_dni_het'] <> "") echo " (HETEROLOGO)"; ?></td>
@@ -406,23 +400,12 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
                                                 if ($tra['dia'] == 5) $dt = 12;
                                                 if ($tra['dia'] == 6) $dt = 11;
                                                 $beta = date('d-m-Y', strtotime($beta . ' + ' . $dt . ' days')); ?>
-                                                <select name="beta<?php echo $aspi['pro']; ?>" data-mini="true"
-                                                        onChange="Beta(this,<?php echo $aspi['pro']; ?>)">
-                                                    <option value=0 <?php if ($tra['beta'] == 0) echo 'selected'; ?>>
-                                                        Pendiente
-                                                    </option>
-                                                    <option value=1 <?php if ($tra['beta'] == 1) echo 'selected'; ?>>
-                                                        Positivo
-                                                    </option>
-                                                    <option value=2 <?php if ($tra['beta'] == 2) echo 'selected'; ?>>
-                                                        Negativo
-                                                    </option>
-                                                    <option value=3 <?php if ($tra['beta'] == 3) echo 'selected'; ?>>
-                                                        Bioquimico
-                                                    </option>
-                                                    <option value=4 <?php if ($tra['beta'] == 4) echo 'selected'; ?>>
-                                                        Aborto
-                                                    </option>
+                                                <select name="beta<?php echo $aspi['pro']; ?>" data-mini="true" onChange="Beta(this,<?php echo $aspi['pro']; ?>)">
+                                                    <option value=0 <?php if ($tra['beta'] == 0) echo 'selected'; ?>>Pendiente</option>
+                                                    <option value=1 <?php if ($tra['beta'] == 1) echo 'selected'; ?>>Positivo</option>
+                                                    <option value=2 <?php if ($tra['beta'] == 2) echo 'selected'; ?>>Negativo</option>
+                                                    <option value=3 <?php if ($tra['beta'] == 3) echo 'selected'; ?>>Bioquimico</option>
+                                                    <option value=4 <?php if ($tra['beta'] == 4) echo 'selected'; ?>>Aborto</option>
                                                 </select>
                                                 <?php echo '<i class="color2">' . $beta . '</i>';
                                             } else echo '-';
@@ -441,12 +424,9 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
                         echo '<p><h3>¡ No tiene Reproducciones Asistidas !</h3></p>';
                     } ?>
                     <p>
-                    <table width="100%" cellpadding="5"
-                           style="text-align:center;font-size: small;border-collapse: collapse;border: 1px solid #72a2aa;">
+                    <table width="100%" cellpadding="5" style="text-align:center;font-size: small;border-collapse: collapse;border: 1px solid #72a2aa;">
                         <tr>
-                            <th colspan="8"><a href="n_adju.php?id=<?php echo $id; ?>"
-                                               class="ui-btn ui-mini ui-btn-inline" data-theme="a" rel="external">RESERVA
-                                    DE OVULOS Y EMBRIONES</a></th>
+                            <th colspan="8"><a href="n_adju.php?id=<?php echo $id; ?>" class="ui-btn ui-mini ui-btn-inline" data-theme="a" rel="external">RESERVA DE OVULOS Y EMBRIONES</a></th>
                         </tr>
 
                         <?php $rAdju = $db->prepare("SELECT lab_aspira.dni,lab_aspira.fec,lab_aspira_dias.* FROM lab_aspira,lab_aspira_dias WHERE lab_aspira.pro=lab_aspira_dias.pro AND adju=? ORDER BY ABS(lab_aspira_dias.pro) ASC");
@@ -496,34 +476,32 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
                 <div id="two">
                     <div class="enlinea">
                         <p class="peke">
-                        <h3>Pareja:</h3><select name="p_dni" id="p_dni" data-mini="true" data-inline="true">
-                            <option value="">Seleccione Pareja</option>
-                            <?php while ($pp = $rPP->fetch(PDO::FETCH_ASSOC)) {
-                                $rPare = $db->prepare("SELECT p_nom,p_ape FROM hc_pareja WHERE p_dni=?");
-                                $rPare->execute(array($pp['p_dni']));
-                                $pare = $rPare->fetch(PDO::FETCH_ASSOC);
-
-                                echo "<option value=" . $pp['p_dni'] . ">" . $pare['p_ape'] . " " . $pare['p_nom'] . "</option>";
-                            } ?>
-                            <option value="1">---SOLTERA---</option>
-                        </select>
-                        <select name="t_mue" id="t_mue" data-mini="true" data-inline="true">
-                            <option value="">Tipo de Muestra</option>
-                            <option value=1>Muestra: Fresca</option>
-                            <option value=2>Muestra: Congelada</option>
-                            <option value=3>No Aplica</option>
-                        </select></p>
+                            <h3>Pareja:</h3>
+                            <select name="p_dni" id="p_dni" data-mini="true" data-inline="true">
+                                <option value="">Seleccione Pareja</option>
+                                <option value="1">---SOLTERA---</option>
+                                <?php
+                                    while ($pp = $rPP->fetch(PDO::FETCH_ASSOC)) {
+                                        $rPare = $db->prepare("SELECT p_nom, p_ape FROM hc_pareja WHERE p_dni=?");
+                                        $rPare->execute(array($pp['p_dni']));
+                                        $pare = $rPare->fetch(PDO::FETCH_ASSOC);
+                                        print ("<option value=" . $pp['p_dni'] . ">" . var_dump($rPP)  . $pare['p_ape'] . " " . $pare['p_nom'] . "</option>");
+                                    }
+                                ?>
+                            </select>
+                            <select name="t_mue" id="t_mue" data-mini="true" data-inline="true">
+                                <option value="">Tipo de Muestra</option>
+                                <option value=1>Muestra: Fresca</option>
+                                <option value=2>Muestra: Congelada</option>
+                                <option value=3>No Aplica</option>
+                            </select>
+                        </p>
                         <h3>Procedimientos:</h3>
-                        <input type="checkbox" name="p_cic" id="p_cic" data-mini="true" value=1><label
-                                for="p_cic">C. Natural</label>
-                        <input type="checkbox" name="p_fiv" id="p_fiv" data-mini="true" value=1><label
-                                for="p_fiv">FIV</label>
-                        <input type="checkbox" name="p_icsi" id="p_icsi" data-mini="true" value=1><label
-                                for="p_icsi">ICSI</label>
-                        <input type="checkbox" name="p_cri" id="p_cri" data-mini="true" value=1><label
-                                for="p_cri">Crio Ovos</label>
-                        <input type="checkbox" name="p_iiu" id="p_iiu" data-mini="true" value=1><label
-                                for="p_iiu">IIU</label>
+                        <input type="checkbox" name="p_cic" id="p_cic" data-mini="true" value=1><label for="p_cic">C. Natural</label>
+                        <input type="checkbox" name="p_fiv" id="p_fiv" data-mini="true" value=1><label for="p_fiv">FIV</label>
+                        <input type="checkbox" name="p_icsi" id="p_icsi" data-mini="true" value=1><label for="p_icsi">ICSI</label>
+                        <input type="checkbox" name="p_cri" id="p_cri" data-mini="true" value=1><label for="p_cri">Crio Ovos</label>
+                        <input type="checkbox" name="p_iiu" id="p_iiu" data-mini="true" value=1><label for="p_iiu">IIU</label>
                         <?php if ($paci['don'] == 'D') { ?>
                             <input type="checkbox" name="p_don" id="p_don" data-mini="true" value=1>
                             <label for="p_don">Donación Fresco</label>
@@ -559,10 +537,7 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
                     <div class="lista_des scroll_h">&nbsp;</div>
 
                     <?php if ($user['role'] == 1) { ?>
-                        <input type="Submit" value="GUARDAR DATOS" name="boton_datos" data-icon="check"
-                               data-iconpos="left" data-mini="true" class="show-page-loading-msg"
-                               data-textonly="false" data-textvisible="true" data-msgtext="Agregando datos.."
-                               data-theme="b" data-inline="true"/>
+                        <input type="Submit" value="GUARDAR DATOS" name="boton_datos" data-icon="check" data-iconpos="left" data-mini="true" class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="Agregando datos.." data-theme="b" data-inline="true"/>
                     <?php } ?>
                 </div>
             </div>
@@ -576,15 +551,14 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
 </form>
 <script>
     $(document).on("click", ".show-page-loading-msg", function () {
-
-        if (document.getElementById("p_dni").value == "") {
+        /*if (document.getElementById("p_dni").value == "") {
             alert("Debe ingresar la Pareja");
             return false;
         }
         if (document.getElementById("t_mue").value == "") {
             alert("Debe ingresar el tipo de Muestra");
             return false;
-        }
+        }*/
 
         if (document.getElementById("p_des").value != "") {
 

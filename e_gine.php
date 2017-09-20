@@ -18,7 +18,6 @@
     <script>
         // popup PARA LA AGENDA ---------------------------------------------------
         $(document).on("pagecreate", function () {
-
             // The window width and height are decreased by 30 to take the tolerance of 15 pixels at each side into account
             function scale(width, height, padding, border) {
                 var scrWidth = $(window).width() - 30,
@@ -83,15 +82,12 @@
             return true;
         }
     </script>
-
-    <?php if ($_GET['pop'] <> "") { ?>
+    <?php
+    if ($_GET['pop'] <> "") { ?>
         <script>
             $(document).ready(function () {
-
                 $("#Plan").collapsible({collapsed: false});
-
             });
-
         </script>
     <?php } ?>
     <style>
@@ -101,27 +97,23 @@
         }
     </style>
 </head>
-
 <body>
-
 <div data-role="page" class="ui-responsive-panel" id="e_gine" data-dialog="true">
     <?php
     if (isSet($_POST['idx'])) {
         $hora = explode(":", $_POST['in_hora']);
         updateGine($_POST['idx'], $_POST['fec'], $_POST['fec_h'], $_POST['fec_m'], $_POST['mot'], $_POST['dig'], $_POST['aux'], $_POST['efec'], $_POST['cic'], $_POST['vag'], $_POST['vul'], $_POST['cer'], $_POST['cer1'], $_POST['mam'], $_POST['mam1'], $_POST['t_vag'], $_POST['eco'], $_POST['e_sol'], $_POST['i_med'], $_POST['i_fec'], $_POST['i_obs'], $_POST['in_t'], $_POST['in_f1'], $_POST['in_h1'], $_POST['in_m1'], $_POST['in_f2'], $hora[0], $hora[1], $_POST['in_c'], $_POST['repro']);
-
     }
     if ($_POST['in_c'] == 1 and $_POST['in_t'] <> '' and $_POST['in_f2'] <> '' and $_POST['in_hora'] <> '')
         google_cal($_POST['in_t'] . ': ' . $_POST['nombre'] . ' (' . $login . ')', 'Ginecologia INMATER', $_POST['in_f2'] . 'T' . $hora[0] . ':' . $hora[1] . ':00.000-05:00', 'bovcnii8fc3jharfgm31veg3vg@group.calendar.google.com');
 
     if ($_POST['medi_add'] == "AGREGAR") {
-
         if ($_POST['medi_name'] <> '|' and $_POST['medi_dosis'] <> '' and $_POST['medi_frecuencia'] <> '' and $_POST['medi_cant_dias'] <> '' and $_POST['medi_init_fec'] <> '' and $_POST['medi_init_h'] <> '' and $_POST['medi_init_m'] <> '')
             updateMedi($_POST['idx'], $_POST['dni'], $_POST['medi_name'], $_POST['medi_dosis'], $_POST['medi_frecuencia'], $_POST['medi_cant_dias'], $_POST['medi_init_fec'], $_POST['medi_init_h'], $_POST['medi_init_m'], $_POST['medi_obs'], 0);
         else
             echo "<div id='alerta'> DEBE INGRESAR TODOS LOS CAMPOS DEL MEDICAMENTO </div>";
-
     }
+
     if ($_GET['id'] <> "") {
 
         $id = $_GET['id'];
@@ -251,7 +243,6 @@
                 $("#repro_lista").change(function () {
                     var str = $('#repro').val();
                     var items = $(this).val();
-
                     var n = str.indexOf(items);
 
                     if (n == -1) {	// no agrega duplicados -----------------------------------------------------
@@ -408,28 +399,26 @@
                                 <option value="NINGUNA">*** NINGUNA ***</option>
                                 <option value="borrar_p">*** BORRAR TODO ***</option>
                                 <optgroup label="Agrege Procedimientos:">
-                                <option value="FIV">FIV</option>
-                                <option value="OD">OD</option>
-                                <option value="SD">SD</option>
-                                <option value="EMBRYOAPOCION">EMBRYOAPOCION</option>
-                                <option value="TED">TED</option>
-                                <option value="CRIO OVOS">CRIO OVOS</option>
-                                <option value="IIU">IIU</option>
+                                    <option value="FIV">FIV</option>
+                                    <option value="OD">OD</option>
+                                    <option value="SD">SD</option>
+                                    <option value="EMBRYOAPOCION">EMBRYOAPOCION</option>
+                                    <option value="TED">TED</option>
+                                    <option value="CRIO OVOS">CRIO OVOS</option>
+                                    <option value="IIU">IIU</option>
                                 </optgroup>
                                 <optgroup label="Agrege Extras">
-                                <option value="TRANSFERENCIA FRESCO">TRANSFERENCIA FRESCO</option>
-                                <option value="NGS">NGS</option>
-                                <option value="CRIO TOTAL">CRIO TOTAL</option>
-                                <option value="EMBRYOGLUE">EMBRYOGLUE</option>
-                                <option value="EMBRYOSCOPE">EMBRIOSCOPE</option>
-                                <option value="PICSI">PICSI</option>
-                                <option value="BANKING EMBRIONES">BANKING EMBRIONES</option>
+                                    <option value="TRANSFERENCIA FRESCO">TRANSFERENCIA FRESCO</option>
+                                    <option value="NGS">NGS</option>
+                                    <option value="CRIO TOTAL">CRIO TOTAL</option>
+                                    <option value="EMBRYOGLUE">EMBRYOGLUE</option>
+                                    <option value="EMBRYOSCOPE">EMBRIOSCOPE</option>
+                                    <option value="PICSI">PICSI</option>
+                                    <option value="BANKING EMBRIONES">BANKING EMBRIONES</option>
                                 </optgroup>
                             </select>
                         </td>
-                        <td><textarea name="repro" required id="repro"
-                                      data-mini="true"><?php echo $gine['repro']; ?></textarea>
-                        </td>
+                        <td><textarea name="repro" required id="repro" data-mini="true"><?php echo $gine['repro']; ?></textarea></td>
                     </tr>
                 </table>
                 <div data-role="collapsibleset" data-theme="a" data-content-theme="a" data-mini="true">
@@ -908,12 +897,8 @@
             </form>
 
         </div><!-- /content -->
-
-
     <?php } ?>
 </div><!-- /page -->
-
-
 <script>
     $(document).on("click", ".show-page-loading-msg", function () {
 
@@ -987,7 +972,6 @@
         });
     $(function () {
         $('#alerta').delay(10000).fadeOut('slow');
-
     });//]]>
 </script>
 </body>

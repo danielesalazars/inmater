@@ -23,13 +23,10 @@
         }
     </style>
 </head>
-
 <body>
-
 <div data-role="page" class="ui-responsive-panel" id="e_repro" data-dialog="true">
     <?php
     if (isset($_POST['idx'])) {
-
         $con_fec = "";
         if ($_POST['con_fec0'] <> "") {
             $con_fec = $_POST['con_fec0'];
@@ -38,29 +35,18 @@
                 $con_fec = $con_fec . "|" . endCycle($_POST['con_fec0'], $i);
             }
         }
-
         $con_od = $_POST['con_od0'] . "|" . $_POST['con_od1'] . "|" . $_POST['con_od2'] . "|" . $_POST['con_od3'] . "|" . $_POST['con_od4'] . "|" . $_POST['con_od5'] . "|" . $_POST['con_od6'] . "|" . $_POST['con_od7'] . "|" . $_POST['con_od8'] . "|" . $_POST['con_od9'] . "|" . $_POST['con_od10'] . "|" . $_POST['con_od11'] . "|" . $_POST['con_od12'] . "|" . $_POST['con_od13'] . "|" . $_POST['con_od14'] . "|" . $_POST['con_od15'] . "|" . $_POST['con_od16'] . "|" . $_POST['con_od17'] . "|" . $_POST['con_od18'] . "|" . $_POST['con_od19'] . "|" . $_POST['con_od20'] . "|" . $_POST['con_od21'] . "|" . $_POST['con_od22'] . "|" . $_POST['con_od23'] . "|" . $_POST['con_od24'] . "|" . $_POST['con_od25'] . "|" . $_POST['con_od26'] . "|" . $_POST['con_od27'] . "|" . $_POST['con_od28'] . "|" . $_POST['con_od29'];
-
         $con_oi = $_POST['con_oi0'] . "|" . $_POST['con_oi1'] . "|" . $_POST['con_oi2'] . "|" . $_POST['con_oi3'] . "|" . $_POST['con_oi4'] . "|" . $_POST['con_oi5'] . "|" . $_POST['con_oi6'] . "|" . $_POST['con_oi7'] . "|" . $_POST['con_oi8'] . "|" . $_POST['con_oi9'] . "|" . $_POST['con_oi10'] . "|" . $_POST['con_oi11'] . "|" . $_POST['con_oi12'] . "|" . $_POST['con_oi13'] . "|" . $_POST['con_oi14'] . "|" . $_POST['con_oi15'] . "|" . $_POST['con_oi16'] . "|" . $_POST['con_oi17'] . "|" . $_POST['con_oi18'] . "|" . $_POST['con_oi19'] . "|" . $_POST['con_oi20'] . "|" . $_POST['con_oi21'] . "|" . $_POST['con_oi22'] . "|" . $_POST['con_oi23'] . "|" . $_POST['con_oi24'] . "|" . $_POST['con_oi25'] . "|" . $_POST['con_oi26'] . "|" . $_POST['con_oi27'] . "|" . $_POST['con_oi28'] . "|" . $_POST['con_oi29'];
-
         $con_end = $_POST['con_end0'] . "|" . $_POST['con_end1'] . "|" . $_POST['con_end2'] . "|" . $_POST['con_end3'] . "|" . $_POST['con_end4'] . "|" . $_POST['con_end5'] . "|" . $_POST['con_end6'] . "|" . $_POST['con_end7'] . "|" . $_POST['con_end8'] . "|" . $_POST['con_end9'] . "|" . $_POST['con_end10'] . "|" . $_POST['con_end11'] . "|" . $_POST['con_end12'] . "|" . $_POST['con_end13'] . "|" . $_POST['con_end14'] . "|" . $_POST['con_end15'] . "|" . $_POST['con_end16'] . "|" . $_POST['con_end17'] . "|" . $_POST['con_end18'] . "|" . $_POST['con_end19'] . "|" . $_POST['con_end20'] . "|" . $_POST['con_end21'] . "|" . $_POST['con_end22'] . "|" . $_POST['con_end23'] . "|" . $_POST['con_end24'] . "|" . $_POST['con_end25'] . "|" . $_POST['con_end26'] . "|" . $_POST['con_end27'] . "|" . $_POST['con_end28'] . "|" . $_POST['con_end29'];
-
         $con1_med = $_POST['con1_med0'] . "|" . $_POST['con1_med1'] . "|" . $_POST['con1_med2'] . "|" . $_POST['con1_med3'] . "|" . $_POST['con1_med4'] . "|" . $_POST['con1_med5'] . "|" . $_POST['con1_med6'] . "|" . $_POST['con1_med7'] . "|" . $_POST['con1_med8'] . "|" . $_POST['con1_med9'] . "|" . $_POST['con1_med10'] . "|" . $_POST['con1_med11'] . "|" . $_POST['con1_med12'] . "|" . $_POST['con1_med13'] . "|" . $_POST['con1_med14'] . "|" . $_POST['con1_med15'] . "|" . $_POST['con1_med16'] . "|" . $_POST['con1_med17'] . "|" . $_POST['con1_med18'] . "|" . $_POST['con1_med19'] . "|" . $_POST['con1_med20'] . "|" . $_POST['con1_med21'] . "|" . $_POST['con1_med22'] . "|" . $_POST['con1_med23'] . "|" . $_POST['con1_med24'] . "|" . $_POST['con1_med25'] . "|" . $_POST['con1_med26'] . "|" . $_POST['con1_med27'] . "|" . $_POST['con1_med28'] . "|" . $_POST['con1_med29'] . "|" . $_POST['con1_med30'];
-
         $con2_med = $_POST['con2_med0'] . "|" . $_POST['con2_med1'] . "|" . $_POST['con2_med2'] . "|" . $_POST['con2_med3'] . "|" . $_POST['con2_med4'] . "|" . $_POST['con2_med5'] . "|" . $_POST['con2_med6'] . "|" . $_POST['con2_med7'] . "|" . $_POST['con2_med8'] . "|" . $_POST['con2_med9'] . "|" . $_POST['con2_med10'] . "|" . $_POST['con2_med11'] . "|" . $_POST['con2_med12'] . "|" . $_POST['con2_med13'] . "|" . $_POST['con2_med14'] . "|" . $_POST['con2_med15'] . "|" . $_POST['con2_med16'] . "|" . $_POST['con2_med17'] . "|" . $_POST['con2_med18'] . "|" . $_POST['con2_med19'] . "|" . $_POST['con2_med20'] . "|" . $_POST['con2_med21'] . "|" . $_POST['con2_med22'] . "|" . $_POST['con2_med23'] . "|" . $_POST['con2_med24'] . "|" . $_POST['con2_med25'] . "|" . $_POST['con2_med26'] . "|" . $_POST['con2_med27'] . "|" . $_POST['con2_med28'] . "|" . $_POST['con2_med29'] . "|" . $_POST['con2_med30'];
-
         $con3_med = $_POST['con3_med0'] . "|" . $_POST['con3_med1'] . "|" . $_POST['con3_med2'] . "|" . $_POST['con3_med3'] . "|" . $_POST['con3_med4'] . "|" . $_POST['con3_med5'] . "|" . $_POST['con3_med6'] . "|" . $_POST['con3_med7'] . "|" . $_POST['con3_med8'] . "|" . $_POST['con3_med9'] . "|" . $_POST['con3_med10'] . "|" . $_POST['con3_med11'] . "|" . $_POST['con3_med12'] . "|" . $_POST['con3_med13'] . "|" . $_POST['con3_med14'] . "|" . $_POST['con3_med15'] . "|" . $_POST['con3_med16'] . "|" . $_POST['con3_med17'] . "|" . $_POST['con3_med18'] . "|" . $_POST['con3_med19'] . "|" . $_POST['con3_med20'] . "|" . $_POST['con3_med21'] . "|" . $_POST['con3_med22'] . "|" . $_POST['con3_med23'] . "|" . $_POST['con3_med24'] . "|" . $_POST['con3_med25'] . "|" . $_POST['con3_med26'] . "|" . $_POST['con3_med27'] . "|" . $_POST['con3_med28'] . "|" . $_POST['con3_med29'] . "|" . $_POST['con3_med30'];
-
         $con4_med = $_POST['con4_med0'] . "|" . $_POST['con4_med1'] . "|" . $_POST['con4_med2'] . "|" . $_POST['con4_med3'] . "|" . $_POST['con4_med4'] . "|" . $_POST['con4_med5'] . "|" . $_POST['con4_med6'] . "|" . $_POST['con4_med7'] . "|" . $_POST['con4_med8'] . "|" . $_POST['con4_med9'] . "|" . $_POST['con4_med10'] . "|" . $_POST['con4_med11'] . "|" . $_POST['con4_med12'] . "|" . $_POST['con4_med13'] . "|" . $_POST['con4_med14'] . "|" . $_POST['con4_med15'] . "|" . $_POST['con4_med16'] . "|" . $_POST['con4_med17'] . "|" . $_POST['con4_med18'] . "|" . $_POST['con4_med19'] . "|" . $_POST['con4_med20'] . "|" . $_POST['con4_med21'] . "|" . $_POST['con4_med22'] . "|" . $_POST['con4_med23'] . "|" . $_POST['con4_med24'] . "|" . $_POST['con4_med25'] . "|" . $_POST['con4_med26'] . "|" . $_POST['con4_med27'] . "|" . $_POST['con4_med28'] . "|" . $_POST['con4_med29'] . "|" . $_POST['con4_med30'];
-
         $con5_med = $_POST['con5_med0'] . "|" . $_POST['con5_med1'] . "|" . $_POST['con5_med2'] . "|" . $_POST['con5_med3'] . "|" . $_POST['con5_med4'] . "|" . $_POST['con5_med5'] . "|" . $_POST['con5_med6'] . "|" . $_POST['con5_med7'] . "|" . $_POST['con5_med8'] . "|" . $_POST['con5_med9'] . "|" . $_POST['con5_med10'] . "|" . $_POST['con5_med11'] . "|" . $_POST['con5_med12'] . "|" . $_POST['con5_med13'] . "|" . $_POST['con5_med14'] . "|" . $_POST['con5_med15'] . "|" . $_POST['con5_med16'] . "|" . $_POST['con5_med17'] . "|" . $_POST['con5_med18'] . "|" . $_POST['con5_med19'] . "|" . $_POST['con5_med20'] . "|" . $_POST['con5_med21'] . "|" . $_POST['con5_med22'] . "|" . $_POST['con5_med23'] . "|" . $_POST['con5_med24'] . "|" . $_POST['con5_med25'] . "|" . $_POST['con5_med26'] . "|" . $_POST['con5_med27'] . "|" . $_POST['con5_med28'] . "|" . $_POST['con5_med29'] . "|" . $_POST['con5_med30'];
-
         $con_iny = $_POST['con_iny0'] . "|" . $_POST['con_iny1'] . "|" . $_POST['con_iny2'] . "|" . $_POST['con_iny3'] . "|" . $_POST['con_iny4'] . "|" . $_POST['con_iny5'] . "|" . $_POST['con_iny6'] . "|" . $_POST['con_iny7'] . "|" . $_POST['con_iny8'] . "|" . $_POST['con_iny9'] . "|" . $_POST['con_iny10'] . "|" . $_POST['con_iny11'] . "|" . $_POST['con_iny12'] . "|" . $_POST['con_iny13'] . "|" . $_POST['con_iny14'] . "|" . $_POST['con_iny15'] . "|" . $_POST['con_iny16'] . "|" . $_POST['con_iny17'] . "|" . $_POST['con_iny18'] . "|" . $_POST['con_iny19'] . "|" . $_POST['con_iny20'] . "|" . $_POST['con_iny21'] . "|" . $_POST['con_iny22'] . "|" . $_POST['con_iny23'] . "|" . $_POST['con_iny24'] . "|" . $_POST['con_iny25'] . "|" . $_POST['con_iny26'] . "|" . $_POST['con_iny27'] . "|" . $_POST['con_iny28'] . "|" . $_POST['con_iny29'] . "|" . $_POST['con_iny30'];
-
         $con_obs = $_POST['con_obs0'] . "|" . $_POST['con_obs1'] . "|" . $_POST['con_obs2'] . "|" . $_POST['con_obs3'] . "|" . $_POST['con_obs4'] . "|" . $_POST['con_obs5'] . "|" . $_POST['con_obs6'] . "|" . $_POST['con_obs7'] . "|" . $_POST['con_obs8'] . "|" . $_POST['con_obs9'] . "|" . $_POST['con_obs10'] . "|" . $_POST['con_obs11'] . "|" . $_POST['con_obs12'] . "|" . $_POST['con_obs13'] . "|" . $_POST['con_obs14'] . "|" . $_POST['con_obs15'] . "|" . $_POST['con_obs16'] . "|" . $_POST['con_obs17'] . "|" . $_POST['con_obs18'] . "|" . $_POST['con_obs19'] . "|" . $_POST['con_obs20'] . "|" . $_POST['con_obs21'] . "|" . $_POST['con_obs22'] . "|" . $_POST['con_obs23'] . "|" . $_POST['con_obs24'] . "|" . $_POST['con_obs25'] . "|" . $_POST['con_obs26'] . "|" . $_POST['con_obs27'] . "|" . $_POST['con_obs28'] . "|" . $_POST['con_obs29'];
-
-
-        updateRepro($_POST['idx'], $_POST['eda'], $_POST['p_dni_het'], $_POST['p_cic'], $_POST['p_fiv'], $_POST['p_icsi'], $_POST['p_od'], $_POST['p_don'], $_POST['p_cri'], $_POST['p_iiu'], $_POST['p_extras'], $_POST['n_fol'], $_POST['fur'], $_POST['f_aco'], $_POST['fsh'], $_POST['lh'], $_POST['est'], $_POST['prol'], $_POST['ins'], $_POST['amh'], $_POST['inh'], $_POST['t3'], $_POST['t4'], $_POST['tsh'], $_POST['m_agh'], $_POST['m_vdrl'], $_POST['m_clam'], $_POST['m_his'], $_POST['m_hsg'], $_POST['f_fem'], $_POST['f_mas'], $con_fec, $con_od, $con_oi, $con_end, $con1_med, $con2_med, $con3_med, $con4_med, $con5_med, $con_iny, $con_obs, $_POST['obs'], $_POST['f_iny'], $_POST['h_iny'], $_POST['f_asp'], $_POST['cancela']);
+        
+        updateRepro($_POST['p_dnix'],$_POST['t_muex'],$_POST['idx'], $_POST['eda'], $_POST['p_dni_het'], $_POST['p_cic'], $_POST['p_fiv'], $_POST['p_icsi'], $_POST['p_od'], $_POST['p_don'], $_POST['p_cri'], $_POST['p_iiu'], $_POST['p_extras'], $_POST['n_fol'], $_POST['fur'], $_POST['f_aco'], $_POST['fsh'], $_POST['lh'], $_POST['est'], $_POST['prol'], $_POST['ins'], $_POST['amh'], $_POST['inh'], $_POST['t3'], $_POST['t4'], $_POST['tsh'], $_POST['m_agh'], $_POST['m_vdrl'], $_POST['m_clam'], $_POST['m_his'], $_POST['m_hsg'], $_POST['f_fem'], $_POST['f_mas'], $con_fec, $con_od, $con_oi, $con_end, $con1_med, $con2_med, $con3_med, $con4_med, $con5_med, $con_iny, $con_obs, $_POST['obs'], $_POST['f_iny'], $_POST['h_iny'], $_POST['f_asp'], $_POST['cancela'], $_POST['repro']);
 
         if ($_POST['f_asp'] <> '') {
             $titcal = '';
@@ -193,10 +179,26 @@
                 color: #F04F52 !important;
             }
         </style>
-
         <script>
-
             $(document).ready(function () {
+                $("#repro_lista").change(function () {
+                    var str = $('#repro').val();
+                    var items = $(this).val();
+                    var n = str.indexOf(items);
+                    if (n == -1) {
+                        // no agrega duplicados -----------------------------------------------------
+                        $('#repro').val(items + ", " + str);
+                        $('#repro').textinput('refresh');
+                    }
+                    if (items == "borrar_p") {
+                        $('#repro').val("");
+                    }
+                    if (items == "NINGUNA") {
+                        $('#repro').val("NINGUNA");
+                    }
+                    $(this).prop('selectedIndex', 0);
+                    $(this).selectmenu("refresh", true);
+                });
 
                 $("#aspira_block").hide();
                 // No close unsaved windows --------------------
@@ -370,13 +372,11 @@
 
             });
         </script>
-
         <div data-role="header" data-position="fixed">
             <h2><?php echo "<small>(" . date("d-m-Y", strtotime($repro['fec'])) . ")</small> " . $paci['ape'] . " " . $paci['nom'] . " / <small>" . $pareja . "</small>"; ?></h2>
-        </div><!-- /header -->
-
+        </div>
+        <!-- /header -->
         <div class="ui-content" role="main">
-
             <form action="e_repro.php" method="post" data-ajax="false" id="form1">
                 <input type="hidden" name="idx" value="<?php echo $repro['id']; ?>">
                 <input type="hidden" name="dni" value="<?php echo $repro['dni']; ?>">
@@ -390,25 +390,76 @@
                     <div data-role="collapsible" data-collapsed="false"><h3>Procedimientos / Extras</h3>
                         <table width="100%" align="center" style="margin: 0 auto;">
                             <tr>
+                                <td>
+                                    <select name="p_dnix" id="p_dnix" data-mini="true" data-inline="true">
+                                        <option value="">Seleccione Pareja</option>
+                                        <option value="1">---SOLTERA---</option>
+                                        <?php
+                                            $rPP = $db->prepare("SELECT p_dni FROM hc_pare_paci WHERE dni=? ORDER BY p_fec DESC");
+                                            $rPP->execute(array($repro['dni']));
+                                            $p_dni_selected="";
+                                            while ($pp = $rPP->fetch(PDO::FETCH_ASSOC)) {
+                                                $rPare = $db->prepare("SELECT p_nom,p_ape FROM hc_pareja WHERE p_dni=?");
+                                                $rPare->execute(array($pp['p_dni']));
+                                                $pare = $rPare->fetch(PDO::FETCH_ASSOC);
+                                                if ($repro['p_dni'] == $pp['p_dni']) {
+                                                    $p_dni_selected="selected";
+                                                }
+                                                print ("<option value=" . $pp['p_dni'] . " $p_dni_selected>" . var_dump($rPP)  . $pare['p_ape'] . " " . $pare['p_nom'] . "</option>");
+                                            }
+                                        ?>
+                                    </select>
+                                    <select name="t_muex" id="t_muex" data-mini="true" data-inline="true">
+                                        <option value="">Tipo de Muestra</option>
+                                        <option value=1 <?php if ($repro['t_mue'] == 1) {print("selected");} ?>>Muestra: Fresca</option>
+                                        <option value=2 <?php if ($repro['t_mue'] == 2) {print("selected");} ?>>Muestra: Congelada</option>
+                                        <option value=3 <?php if ($repro['t_mue'] == 3) {print("selected");} ?>>No Aplica</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select name="select" id="repro_lista" data-mini="true" data-inline="true">
+                                        <option value="" selected>Reproducción Asistida:</option>
+                                        <option value="NINGUNA">*** NINGUNA ***</option>
+                                        <option value="borrar_p">*** BORRAR TODO ***</option>
+                                        <optgroup label="Agrege Procedimientos:">
+                                            <option value="FIV">FIV</option>
+                                            <option value="OD">OD</option>
+                                            <option value="SD">SD</option>
+                                            <option value="EMBRYOAPOCION">EMBRYOAPOCION</option>
+                                            <option value="TED">TED</option>
+                                            <option value="CRIO OVOS">CRIO OVOS</option>
+                                            <option value="IIU">IIU</option>
+                                        </optgroup>
+                                        <optgroup label="Agrege Extras">
+                                            <option value="TRANSFERENCIA FRESCO">TRANSFERENCIA FRESCO</option>
+                                            <option value="NGS">NGS</option>
+                                            <option value="CRIO TOTAL">CRIO TOTAL</option>
+                                            <option value="EMBRYOGLUE">EMBRYOGLUE</option>
+                                            <option value="EMBRYOSCOPE">EMBRIOSCOPE</option>
+                                            <option value="PICSI">PICSI</option>
+                                            <option value="BANKING EMBRIONES">BANKING EMBRIONES</option>
+                                        </optgroup>
+                                    </select>
+                                    <textarea name="repro" required id="repro" data-mini="true"><?php echo $repro['repro']; ?></textarea>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td width="63%">
                                     <div class="enlinea">
-                                        <input type="checkbox" name="p_cic" id="p_cic" data-mini="true"
-                                               value=1 <?php if ($repro['p_cic'] == 1) echo "checked"; ?>><label
-                                                for="p_cic">C. Natural</label>
-
-                                        <input type="checkbox" name="p_fiv" id="p_fiv" data-mini="true"
-                                               value=1 <?php if ($repro['p_fiv'] == 1) echo "checked";
+                                        <!-- C. Natural -->
+                                        <input type="checkbox" name="p_cic" id="p_cic" data-mini="true" value=1 <?php if ($repro['p_cic'] == 1) echo "checked"; ?>>
+                                        <label for="p_cic">C. Natural</label>
+                                        <!-- FIV -->
+                                        <input type="checkbox" name="p_fiv" id="p_fiv" data-mini="true" value=1 <?php if ($repro['p_fiv'] == 1) echo "checked";
                                         if ($repro['des_dia'] >= 1) echo " disabled"; ?>><label for="p_fiv">FIV</label>
-
-                                        <input type="checkbox" name="p_icsi" id="p_icsi" data-mini="true"
-                                               value=1 <?php if ($repro['p_icsi'] == 1) echo "checked";
-                                        if ($repro['des_dia'] >= 1) echo " disabled"; ?>><label
-                                                for="p_icsi">ICSI</label>
-
-                                        <input type="checkbox" name="p_cri" id="p_cri" data-mini="true"
-                                               value=1 <?php if ($repro['p_cri'] == 1) echo "checked";
-                                        if (!is_null($repro['des_dia']) and $repro['des_dia'] >= 0) echo " disabled"; ?>><label
-                                                for="p_cri">Crio Ovos</label>
+                                        <!-- ICSI -->
+                                        <input type="checkbox" name="p_icsi" id="p_icsi" data-mini="true" value=1 <?php if ($repro['p_icsi'] == 1) echo "checked";
+                                        if ($repro['des_dia'] >= 1) echo " disabled"; ?>><label for="p_icsi">ICSI</label>
+                                        <!-- Crio Ovos -->
+                                        <input type="checkbox" name="p_cri" id="p_cri" data-mini="true" value=1 <?php if ($repro['p_cri'] == 1) echo "checked";
+                                        if (!is_null($repro['des_dia']) and $repro['des_dia'] >= 0) echo " disabled"; ?>><label for="p_cri">Crio Ovos</label>
                                         <?php if ($repro['p_iiu'] == 1) { ?>
                                             <input type="checkbox" name="p_iiu" id="p_iiu" data-mini="true" value=1
                                                    checked><label for="p_iiu">IIU</label>
@@ -421,33 +472,38 @@
                                         <?php } else { // si es paciente puede ser receptora ---------
                                             $rDon = $db->prepare("SELECT dni,nom,ape,don,med FROM hc_paciente WHERE don=? ORDER BY ape ASC");
                                             $rDon->execute(array('D')); ?>
-                                            <select name="p_od" id="p_od"
-                                                    data-mini="true" <?php if (!is_null($repro['des_dia']) and $repro['des_dia'] >= 0) echo " disabled"; ?>>
+                                            <!-- OD Fresco -->
+                                            <select name="p_od" id="p_od" data-mini="true" <?php if (!is_null($repro['des_dia']) and $repro['des_dia'] >= 0) echo " disabled"; ?>>
                                                 <option value="">OD Fresco:</option>
                                                 <optgroup label="Seleccione la Donante:">
-                                                    <?php while ($don = $rDon->fetch(PDO::FETCH_ASSOC)) { ?>
-                                                        <option value=<?php echo $don['dni'];
-                                                        if ($repro['p_od'] == $don['dni']) echo " selected"; ?>><?php echo 'OD Fresco: ' . $don['ape'] . ' ' . $don['nom'] . ' (' . $don['med'] . ')'; ?></option>
-                                                    <?php } ?></optgroup>
+                                                    <?php
+                                                        while ($don = $rDon->fetch(PDO::FETCH_ASSOC)) { ?>
+                                                            <option value=<?php echo $don['dni'];
+                                                                if ($repro['p_od'] == $don['dni'])
+                                                                    echo " selected"; ?>><?php echo 'OD Fresco: ' . $don['ape'] . ' ' . $don['nom'] . ' (' . $don['med'] . ')'; ?>
+                                                            </option>
+                                                    <?php
+                                                        }
+                                                    ?>
+                                                </optgroup>
                                             </select>
                                         <?php } ?>
                                     </div>
                                 </td>
-                                <td width="37%"><select name="select" class="med_insert" title="p_extras"
-                                                        data-mini="true" data-inline="true">
+                                <td width="37%">
+                                    <select name="select" class="med_insert" title="p_extras" data-mini="true" data-inline="true">
                                         <option value="" selected>Seleccione Extras..</option>
                                         <option value="borrar_p">- Borrar Datos -</option>
-
                                         <option value="TRANSFERENCIA FRESCO">TRANSFERENCIA FRESCO</option>
-
                                         <option value="NGS">NGS</option>
                                         <option value="CRIO TOTAL">CRIO TOTAL</option>
                                         <option value="EMBRYOGLUE">EMBRYOGLUE</option>
                                         <option value="EMBRYOSCOPE">EMBRIOSCOPE</option>
                                         <option value="PICSI">PICSI</option>
                                         <option value="BANKING EMBRIONES">BANKING EMBRIONES</option>
-                                    </select> <textarea name="p_extras" readonly id="p_extras"
-                                                        data-mini="true"><?php echo $repro['p_extras']; ?></textarea></td>
+                                    </select>
+                                    <textarea name="p_extras" readonly id="p_extras" data-mini="true"><?php echo $repro['p_extras']; ?></textarea>
+                                </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -547,7 +603,6 @@
                         if ($repro['t_mue'] == 2) $t_mue = '(Muestra Congelada)'; ?>
 
                         <div data-role="collapsible"><h3>Andrología <?php echo $t_mue; ?></h3>
-
                             <?php if ($repro['p_dni'] <> "") { ?>
                                 <div data-role="collapsible" data-mini="true" data-collapsed-icon="user"
                                      data-expanded-icon="user" data-theme="c" data-content-theme="a">
@@ -613,14 +668,10 @@
                             <div data-role="controlgroup" data-mini="true">
 
                                 <label for="hete_chk">DONANTE (Heterólogo)</label>
-                                <input type="checkbox" name="hete_chk" id="hete_chk"
-                                       data-mini="true" <?php if ($repro['p_dni_het'] <> "") echo "checked"; ?>
-                                       data-inline="true">
-                                <input type="hidden" name="p_dni_het" id="p_dni_het"
-                                       value="<?php echo $repro['p_dni_het']; ?>">
+                                <input type="checkbox" name="hete_chk" id="hete_chk" data-mini="true" <?php if ($repro['p_dni_het'] <> "") echo "checked"; ?> data-inline="true">
+                                <input type="hidden" name="p_dni_het" id="p_dni_het" value="<?php echo $repro['p_dni_het']; ?>">
                                 <input type="hidden" name="p_dni" id="p_dni" value="<?php echo $repro['p_dni']; ?>">
                                 <div class="hetes">
-
                                     <input id="searchForCollapsibleSet" data-type="search" data-inline="true">
                                     <div data-role="collapsibleset" data-filter="true" data-inset="true"
                                          data-input="#searchForCollapsibleSet" data-theme="c" data-content-theme="a"
@@ -1796,13 +1847,9 @@
                 <?php if ($repro['med'] == $login) {
                     if ($lock <> 1 and $repro['cancela'] <> 2) { //Puede editar hasta la fecha de inyeccion ?>
                         <div class="enlinea">
-                            <input type="Submit" value="GUARDAR DATOS" data-icon="check" data-iconpos="left"
-                                   data-mini="true" class="show-page-loading-msg" data-textonly="false"
-                                   data-textvisible="true" data-msgtext="Actualizando datos.." data-theme="b"
-                                   data-inline="true"/> <input type="checkbox" name="cancela" id="cancela"
-                                                               data-mini="true"
-                                                               value=1 <?php if ($repro['cancela'] == 1) echo "checked"; ?>><label
-                                    for="cancela">Cancelar Reproducción</label>
+                            <input type="Submit" value="GUARDAR DATOS" data-icon="check" data-iconpos="left" data-mini="true" class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="Actualizando datos.." data-theme="b" data-inline="true"/>
+                            <input type="checkbox" name="cancela" id="cancela" data-mini="true" value=1 <?php if ($repro['cancela'] == 1) echo "checked"; ?>>
+                            <label for="cancela">Cancelar Reproducción</label>
                         </div>
                     <?php } else {
                         if (is_null($repro['des_dia'])) $titulo = "Aspiración"; else $titulo = "Descongelación";
@@ -1811,17 +1858,11 @@
                 } else {
                     echo '<font color="#E34446"><b>PERMISO DE EDICION SOLO PARA: </b> ' . $repro['med'] . '</font>';
                 } ?>
-
             </form>
-
         </div><!-- /content -->
-
     <?php } ?>
-
 </div><!-- /page -->
-
 <script>
-
     $(document).on("click", ".show-page-loading-msg", function () {
         if (document.getElementById("cancela").checked == true && document.getElementById("obs").value == "") {
             alert("Debe ingresar en Observaciones el motivo de la cancelación");
@@ -1899,7 +1940,6 @@
         .on("click", ".hide-page-loading-msg", function () {
             $.mobile.loading("hide");
         });
-
 </script>
 </body>
 </html>
