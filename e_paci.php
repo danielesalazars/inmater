@@ -350,10 +350,24 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
         <div class="ui-content" role="main">
 
             <div data-role="collapsibleset" data-theme="a" data-content-theme="a" data-mini="true">
-                <div data-role="collapsible" <?php if ($_GET['pop'] <> 1) echo 'data-collapsed="false"'; ?>><h3>Datos
-                        Generales</h3>
+                <div data-role="collapsible" <?php if ($_GET['pop'] <> 1) echo 'data-collapsed="false"'; ?>><h3>Datos Generales</h3>
                     <div class="scroll_h">
                         <table width="100%" align="center" style="margin: 0 auto;max-width:800px;">
+                            <tr>
+                                <td>Sede</td>
+                                <td>
+                                    <select name="sedes" id="sedes">
+                                        <option value="0">----------</option>
+                                        <?php $rSedes = $db->prepare("SELECT * FROM sedes");
+                                        $rSedes->execute();
+                                        while ($sede = $rSedes->fetch(PDO::FETCH_ASSOC)) { ?>
+                                            <option value="<?php echo $sede['id']; ?>">
+                                                <?php print $sede['nombre']; ?>
+                                            </option>
+                                        <?php } ?>
+                                    </select>
+                                </td>
+                            </tr>
                             <tr>
                                 <td width="9%">Nombre(s)</td>
                                 <td width="19%"><input name="nom" type="text" id="nom" data-mini="true"
