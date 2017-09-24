@@ -162,7 +162,6 @@
                 });
             });
         });
-
     </script>
 
     <?php if ($_GET['pop'] <> "") { ?>
@@ -175,24 +174,17 @@
             });
         </script>
     <?php } ?>
-
 </head>
-
 <body>
 <?php
 if (isSet($_POST['dni']) and $_POST['boton_datos'] = 'GUARDAR DATOS') {
-
-    updatePaci($_POST['dni'], $_POST['tip'], $_POST['nom'], $_POST['ape'], $_POST['fnac'], $_POST['tcel'], $_POST['tcas'], $_POST['tofi'], $_POST['mai'], $_POST['dir'], $_POST['nac'], $_POST['depa'], $_POST['prov'], $_POST['dist'], $_POST['prof'], $_POST['san'], $_POST['don'], $_POST['raz'], $_POST['peso'], $_POST['talla'], $_FILES['foto'], $_POST['rem'], $_POST['sta']);
-
+    updatePaci($_POST['sedes'], $_POST['dni'], $_POST['tip'], $_POST['nom'], $_POST['ape'], $_POST['fnac'], $_POST['tcel'], $_POST['tcas'], $_POST['tofi'], $_POST['mai'], $_POST['dir'], $_POST['nac'], $_POST['depa'], $_POST['prov'], $_POST['dist'], $_POST['prof'], $_POST['san'], $_POST['don'], $_POST['raz'], $_POST['peso'], $_POST['talla'], $_FILES['foto'], $_POST['rem'], $_POST['sta']);
     updatePaciAnte($_POST['dni'], $_POST['f_dia'], $_POST['f_hip'], $_POST['f_gem'], $_POST['f_hta'], $_POST['f_tbc'], $_POST['f_can'], $_POST['f_otr'], $_POST['m_dia'], $_POST['m_hip'], $_POST['m_inf1'], $_POST['m_ale'], $_POST['m_ale1'], $_POST['m_tbc'], $_POST['m_ets'], $_POST['m_can'], $_POST['m_otr'], $_POST['h_str'], $_POST['h_dep'], $_POST['h_dro'], $_POST['h_tab'], $_POST['h_alc'], $_POST['h_otr'], $_POST['g_men'], $_POST['g_per'], $_POST['g_dur'], $_POST['g_vol'], $_POST['g_fur'], $_POST['g_ant'], $_POST['g_pap'], $_POST['g_pap1'], $_POST['g_pap2'], $_POST['g_dis'], $_POST['g_ges'], $_POST['g_abo'], $_POST['g_abo1'], $_POST['g_abo_ges'], $_POST['g_abo_com'], $_POST['g_pt'], $_POST['g_pp'], $_POST['g_vag'], $_POST['g_ces'], $_POST['g_nv'], $_POST['g_nm'], $_POST['g_neo'], $_POST['g_viv'], $_POST['g_fup'], $_POST['g_rn_men'], $_POST['g_rn_mul'], $_POST['g_rn_may'], $_POST['g_agh'], $_POST['g_his'], $_POST['g_obs'], $_POST['fe_exa']);
-
 }
 
 if (isSet($_POST['dni']) and $_POST['graba_nota'] == 'GRABAR') {
-
     $stmt = $db->prepare("UPDATE hc_paciente SET nota=? WHERE dni=?");
     $stmt->execute(array($_POST['nota'], $_POST['dni']));
-
 }
 
 if ($_GET['id'] <> "") {
@@ -358,13 +350,19 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
                                 <td>
                                     <select name="sedes" id="sedes">
                                         <option value="0">----------</option>
-                                        <?php $rSedes = $db->prepare("SELECT * FROM sedes");
-                                        $rSedes->execute();
-                                        while ($sede = $rSedes->fetch(PDO::FETCH_ASSOC)) { ?>
-                                            <option value="<?php echo $sede['id']; ?>">
-                                                <?php print $sede['nombre']; ?>
-                                            </option>
-                                        <?php } ?>
+                                        <?php
+                                            $rSedes = $db->prepare("SELECT * FROM sedes");
+                                            $rSedes->execute();
+                                            $selected = "";
+                                            while ($sede = $rSedes->fetch(PDO::FETCH_ASSOC)) {
+                                                if ($sede['id'] != $paci['idsedes']) {
+                                                    $selected="";
+                                                } else {
+                                                    $selected = "selected";
+                                                }
+                                                print("<option value=".$sede['id']." $selected>".$sede['nombre']."</option>");
+                                            }
+                                        ?>
                                     </select>
                                 </td>
                             </tr>

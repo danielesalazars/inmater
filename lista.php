@@ -80,7 +80,6 @@
             function getCellValue(row, index) {
                 return $(row).children('td').eq(index).html()
             }
-
         });
         function anular(x, y) {
             if (confirm("CONFIRMA LA ANULACION DEL RECIBO: " + x + " ?")) {
@@ -97,7 +96,6 @@
                 document.form1.submit();
                 return true;
             } else return false;
-
         }
         var tableToExcel = (function () {
             var uri = 'data:application/vnd.ms-excel;base64,'
@@ -225,22 +223,13 @@
             </div>
             <div data-role="popup" id="popupBasic" data-arrow="true">
                 <ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true">
-                    <li><a href="pago.php?id=&t=&s=1" rel="external">Reproducción Asistida</a><a href="pago_ser.php?s=1"
-                                                                                                 rel="external">admin</a>
-                    </li>
-                    <li><a href="pago.php?id=&t=&s=2" rel="external">Andrología</a><a href="pago_ser.php?s=2"
-                                                                                      rel="external">admin</a></li>
-                    <li><a href="pago.php?id=&t=&s=3" rel="external">Procedimientos Sala</a><a href="pago_ser.php?s=3"
-                                                                                               rel="external">admin</a>
-                    </li>
-                    <li><a href="pago.php?id=&t=&s=4" rel="external">Analisis Sangre</a><a href="pago_ser.php?s=4"
-                                                                                           rel="external">admin</a></li>
-                    <li><a href="pago.php?id=&t=&s=5" rel="external">Perfiles</a><a href="pago_ser.php?s=5"
-                                                                                    rel="external">admin</a></li>
-                    <li><a href="pago.php?id=&t=&s=6" rel="external">Ecografía</a><a href="pago_ser.php?s=6"
-                                                                                     rel="external">admin</a></li>
-                    <li><a href="pago.php?id=&t=&s=7" rel="external">Adicionales</a><a href="pago_ser.php?s=7"
-                                                                                       rel="external">admin</a></li>
+                    <li><a href="pago.php?id=&t=&s=1" rel="external">Reproducción Asistida</a><a href="pago_ser.php?s=1" rel="external">admin</a></li>
+                    <li><a href="pago.php?id=&t=&s=2" rel="external">Andrología</a><a href="pago_ser.php?s=2" rel="external">admin</a></li>
+                    <li><a href="pago.php?id=&t=&s=3" rel="external">Procedimientos Sala</a><a href="pago_ser.php?s=3" rel="external">admin</a></li>
+                    <li><a href="pago.php?id=&t=&s=4" rel="external">Analisis Sangre</a><a href="pago_ser.php?s=4" rel="external">admin</a></li>
+                    <li><a href="pago.php?id=&t=&s=5" rel="external">Perfiles</a><a href="pago_ser.php?s=5" rel="external">admin</a></li>
+                    <li><a href="pago.php?id=&t=&s=6" rel="external">Ecografía</a><a href="pago_ser.php?s=6" rel="external">admin</a></li>
+                    <li><a href="pago.php?id=&t=&s=7" rel="external">Adicionales</a><a href="pago_ser.php?s=7" rel="external">admin</a></li>
                 </ul>
             </div>
             <div data-role="popup" id="popupBasic2" data-arrow="true">
@@ -265,15 +254,17 @@
             <a href="e_analisis_tipo.php" class="ui-btn ui-mini ui-btn-inline" rel="external">Tipo de Documento</a>
         <?php } ?>
         <h1>
-            <?php if ($user['role'] == 1) echo "Historia Clínica - Lista de Pacientes (" . $login . ")";
-            if ($user['role'] == 2) echo "Laboratorio";
-            if ($user['role'] == 3) echo "Facturación y Boletas";
-            if ($user['role'] == 4 and $login <> 'eco') echo "Análisis Clínico (" . $login . ")";
-            if ($user['role'] == 4 and $login == 'eco') echo "Ecografía";
-            if ($user['role'] == 5) echo "Recepción";
-            if ($user['role'] == 6) echo "Consultas Ginecológicas";
-            if ($user['role'] == 7) echo "Consultas Urológicas (" . $login . ")";
-            if ($user['role'] == 8) echo "Legal"; ?>
+            <?php
+                if ($user['role'] == 1) echo "Historia Clínica - Lista de Pacientes (" . $login . ")";
+                if ($user['role'] == 2) echo "Laboratorio";
+                if ($user['role'] == 3) echo "Facturación y Boletas";
+                if ($user['role'] == 4 and $login <> 'eco') echo "Análisis Clínico (" . $login . ")";
+                if ($user['role'] == 4 and $login == 'eco') echo "Ecografía";
+                if ($user['role'] == 5) echo "Recepción";
+                if ($user['role'] == 6) echo "Consultas Ginecológicas";
+                if ($user['role'] == 7) echo "Consultas Urológicas (" . $login . ")";
+                if ($user['role'] == 8) echo "Legal";
+            ?>
         </h1>
 
         <a href="index.php"
@@ -339,9 +330,10 @@
                 </ol>
             <?php }
             if ($user['role'] == 2 or $user['role'] == 5) { // ************ LAB Y AGENDA **********************************************************************
-                if ($_POST['ini'] == "") $_POST['ini'] = date("Y-m-d");
-
-                $rRepro = $db->prepare("SELECT SUBSTRING_INDEX(hc_reprod.f_asp,'T',-1) AS h_asp,h_tra,ape,nom,hc_reprod.id,hc_reprod.dni,hc_reprod.med,don,hc_reprod.p_dni,hc_reprod.t_mue,hc_reprod.n_fol,hc_reprod.p_dni_het,hc_reprod.p_od,hc_reprod.p_cic,hc_reprod.p_fiv,hc_reprod.p_icsi,hc_reprod.p_cri,hc_reprod.p_iiu,hc_reprod.p_don,hc_reprod.des_don,hc_reprod.des_dia,hc_reprod.obs,hc_reprod.p_extras FROM hc_paciente,hc_reprod WHERE hc_paciente.dni=hc_reprod.dni AND (SUBSTRING_INDEX(hc_reprod.f_asp,'T',1) = ? OR hc_reprod.f_tra=?) AND hc_reprod.cancela <> 1 UNION SELECT CONCAT(hc_gineco.in_h2,':',hc_gineco.in_m2) AS h_asp,NULL AS h_tra,ape,nom,hc_gineco.id,hc_gineco.dni,hc_gineco.med,hc_gineco.in_t AS don,NULL AS p_dni,'x' AS t_mue,'-' AS n_fol,NULL AS p_dni_het,NULL AS p_od,NULL AS p_cic,NULL AS p_fiv,NULL AS p_icsi,NULL AS p_cri,NULL AS p_iiu,NULL AS p_don,NULL AS des_don,NULL AS des_dia,NULL AS obs,NULL AS p_extras FROM hc_paciente,hc_gineco WHERE hc_paciente.dni=hc_gineco.dni AND hc_gineco.in_f2 = ? AND hc_gineco.in_c=1 UNION SELECT CONCAT(hc_urolo.in_h2,':',hc_urolo.in_m2) AS h_asp,NULL AS h_tra,hc_pareja.p_ape AS ape,hc_pareja.p_nom AS nom,hc_urolo.id,hc_urolo.p_dni AS dni,hc_urolo.med,hc_urolo.in_t AS don,NULL AS p_dni,'x' AS t_mue,'-' AS n_fol,NULL AS p_dni_het,NULL AS p_od,NULL AS p_cic,NULL AS p_fiv,NULL AS p_icsi,NULL AS p_cri,NULL AS p_iiu,NULL AS p_don,NULL AS des_don,NULL AS des_dia,NULL AS obs,NULL AS p_extras FROM hc_pareja,hc_urolo WHERE hc_pareja.p_dni=hc_urolo.p_dni AND hc_urolo.in_f2 = ?");
+                if ($_POST['ini'] == "")
+                    $_POST['ini'] = date("Y-m-d");
+                $rRepro = $db->prepare("SELECT SUBSTRING_INDEX(hc_reprod.f_asp,'T',-1) AS h_asp,h_tra,ape,nom,hc_reprod.id,hc_reprod.dni,hc_reprod.med,don,hc_reprod.p_dni,hc_reprod.t_mue,hc_reprod.n_fol,hc_reprod.p_dni_het,hc_reprod.p_od,hc_reprod.p_cic,hc_reprod.p_fiv,hc_reprod.p_icsi,hc_reprod.p_cri,hc_reprod.p_iiu,hc_reprod.p_don,hc_reprod.des_don,hc_reprod.des_dia,hc_reprod.obs,hc_reprod.p_extras FROM hc_paciente,hc_reprod WHERE hc_reprod.des_don is null AND hc_paciente.dni=hc_reprod.dni AND (SUBSTRING_INDEX(hc_reprod.f_asp,'T',1) = ? OR hc_reprod.f_tra=?) AND hc_reprod.cancela <> 1 UNION SELECT CONCAT(hc_gineco.in_h2,':',hc_gineco.in_m2) AS h_asp,NULL AS h_tra,ape,nom,hc_gineco.id,hc_gineco.dni,hc_gineco.med,hc_gineco.in_t AS don,NULL AS p_dni,'x' AS t_mue,'-' AS n_fol,NULL AS p_dni_het,NULL AS p_od,NULL AS p_cic,NULL AS p_fiv,NULL AS p_icsi,NULL AS p_cri,NULL AS p_iiu,NULL AS p_don,NULL AS des_don,NULL AS des_dia,NULL AS obs,NULL AS p_extras FROM hc_paciente,hc_gineco WHERE hc_paciente.dni=hc_gineco.dni AND hc_gineco.in_f2 = ? AND hc_gineco.in_c=1 UNION SELECT CONCAT(hc_urolo.in_h2,':',hc_urolo.in_m2) AS h_asp,NULL AS h_tra,hc_pareja.p_ape AS ape,hc_pareja.p_nom AS nom,hc_urolo.id,hc_urolo.p_dni AS dni,hc_urolo.med,hc_urolo.in_t AS don,NULL AS p_dni,'x' AS t_mue,'-' AS n_fol,NULL AS p_dni_het,NULL AS p_od,NULL AS p_cic,NULL AS p_fiv,NULL AS p_icsi,NULL AS p_cri,NULL AS p_iiu,NULL AS p_don,NULL AS des_don,NULL AS des_dia,NULL AS obs,NULL AS p_extras FROM hc_pareja,hc_urolo WHERE hc_pareja.p_dni=hc_urolo.p_dni AND hc_urolo.in_f2 = ?");
+                print($_POST['ini']);
                 $rRepro->execute(array($_POST['ini'], $_POST['ini'], $_POST['ini'], $_POST['ini']));
                 $Rcap = $db->prepare("SELECT p_dni,iiu,pro,h_cap FROM lab_andro_cap WHERE fec=? AND iiu>0 ORDER BY fec DESC");// capacitacion con IIU
                 $Rcap->execute(array($_POST['ini']));
@@ -354,10 +346,8 @@
                     <div class="enlinea">
                         <b>Fecha </b>
                         <input name="ini" type="date" id="ini" value="<?php echo $_POST['ini']; ?>" data-mini="true">
-                        <input name="VER" type="Submit" id="VER" value="VER" data-inline="true" data-mini="true"
-                               data-theme="b" class="noVer"/>
-                        <a href="javascript:PrintElem('#imprime')" data-role="button" data-mini="true"
-                           data-inline="true" rel="external" class="noVer">Imprimir</a>
+                        <input name="VER" type="Submit" id="VER" value="VER" data-inline="true" data-mini="true" data-theme="b" class="noVer"/>
+                        <a href="javascript:PrintElem('#imprime')" data-role="button" data-mini="true" data-inline="true" rel="external" class="noVer">Imprimir</a>
                         <?php if ($user['role'] == 5) { ?>
                             <select name="agenda_med" id="agenda_med" data-mini="true"">
                             <option value="" selected>Agenda de Médico</option>
@@ -367,7 +357,9 @@
                             </select>
                         <?php } ?>
                         </div>
-                    <?php if ($rRepro->rowCount() > 0) { ?>
+                    <?php
+                        print($rRepro->rowCount());
+                        if ($rRepro->rowCount() > 0) { ?>
                         <h3>Programación de Sala</h3>
                         <div class="scroll_h">
                             <table style="font-size:14px;width:100%;" class="table-stripe ui-responsive">
@@ -385,26 +377,41 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php $id_pros=''; while ($rep = $rRepro->fetch(PDO::FETCH_ASSOC)) {
+                                <?php
+                                    $id_pros='';
+                                    while ($rep = $rRepro->fetch(PDO::FETCH_ASSOC)) {
                                     if ($user['role'] == 2 or ($user['role'] == 5 and ($rep['p_od'] == '' or $rep['h_tra'] <> ''))) { ?>
                                         <tr <?php if ($rep['t_mue'] == 'x') echo 'bgcolor="#C2F7B8"'; // t_mue es X cuando la fila pertenece a hc_gineco o hc_urolo del union ?>>
-                                            <td><?php if ($rep['h_asp'] <> '' and $rep['h_tra'] == '') echo $rep['h_asp'];
-                                                if ($rep['h_tra'] <> '') echo $rep['h_tra']; ?></td>
+                                            <!-- hora -->
                                             <td>
-                                                <?php if ($user['role'] == 2) {
-                                                    if ($rep['n_fol']=='-') $url="e_pare.php?id=&ip=".$rep['dni']; else $url="e_paci.php?id=".$rep['dni'];
-                                                    ?>
-                                                   <a href='<?php echo $url; ?>' target="_blank" rel="external">
-                                                    <?php echo $rep['ape'] . ' ' . $rep['nom']; ?>
-                                                   </a>
-                                                    <?php if ($rep['don'] == 'D') echo ' (DONANTE)';
-                                                    if ($rep['p_od'] <> '') echo ' (RECEPTORA)';
-                                                } else {
-                                                    echo $rep['ape'] . ' ' . $rep['nom'];
-                                                } ?>
+                                                <?php
+                                                if ($rep['h_asp'] <> '' and $rep['h_tra'] == '') echo $rep['h_asp'];
+                                                if ($rep['h_tra'] <> '') echo $rep['h_tra']; ?>
                                             </td>
-                                            <td><?php  if ($rep['n_fol']<>'-') {
-                                                    if ($rep['des_dia'] === 0 or $rep['des_dia'] >= 1) $dias = 9; else $dias = 0; // si es una descogelacion enlaza a le_aspi9.php -------
+                                            <!-- paciente -->
+                                            <td>
+                                                <?php
+                                                    if ($user['role'] == 2) {
+                                                        if ($rep['n_fol']=='-')
+                                                            $url="e_pare.php?id=&ip=".$rep['dni'];
+                                                        else
+                                                            $url="e_paci.php?id=".$rep['dni'];
+                                                ?>
+                                                        <a href='<?php echo $url; ?>' target="_blank" rel="external"><?php echo $rep['ape'] . ' ' . $rep['nom']; ?></a>
+                                                <?php
+                                                        if ($rep['don'] == 'D') echo ' (DONANTE)';
+                                                        if ($rep['p_od'] <> '') echo ' (RECEPTORA)';
+                                                    } else {
+                                                        echo $rep['ape'] . ' ' . $rep['nom'];
+                                                    }
+                                                ?>
+                                            </td>
+                                            <!-- procedimientos -->
+                                            <td>
+                                            <?php
+                                                if ($rep['n_fol']<>'-') {
+                                                    if ($rep['des_dia'] === 0 or $rep['des_dia'] >= 1) $dias = 9;
+                                                    else $dias = 0; // si es una descogelacion enlaza a le_aspi9.php -------
                                                     $url = "le_aspi" . $dias . ".php?rep=" . $rep['id'];
                                                     echo '<a href=' . $url . ' rel="external">';
                                                     if ($rep['p_cic'] >= 1) echo "Ciclo Natural<br>";
@@ -419,7 +426,7 @@
                                                     if ($rep['des_don'] <> null and $rep['des_dia'] >= 1) echo "EMBRIOADOPCIÓN<br>";
                                                     if ($rep['des_don'] <> null and $rep['des_dia'] === 0) echo "<small>Descongelación Ovulos Donados</small><br>";
                                                     echo '</a>';
-                                            }
+                                                }
                                                 if ($rep['h_tra'] <> '') echo 'TRANSFERENCIA';
                                                 if ($rep['don'] == "AMEU") echo "AMEU"; // En realidad es in_t pero usa el alias de don en el union
                                                 if ($rep['don'] == "Legrado") echo "Legrado";
@@ -432,30 +439,34 @@
                                                 if ($rep['don'] == "Electrofulguración de condilomas") echo "Electrofulguración de condilomas";
                                                 if ($rep['don'] == "Biopsia testicular") echo "Biopsia testicular";
                                                 if ($rep['don'] == "Aspiración de epidídimo") echo "Aspiración de epidídimo";
-                                                ?></td>
+                                            ?>
+                                            </td>
+                                            <!-- muestra -->
                                             <td><?php $t_mue = 'No Aplica';
                                                 if ($rep['t_mue'] == 1) $t_mue = 'Fresca';
                                                 if ($rep['t_mue'] == 2) $t_mue = 'Congelada';
-                                                echo $t_mue; ?></td>
+                                                echo $t_mue; ?>
+                                            </td>
+                                            <!-- foliculos -->
                                             <td align="center"><?php echo $rep['n_fol']; ?></td>
+                                            <!-- medico -->
                                             <td><?php echo $rep['med']; ?></td>
                                             <?php if ($user['role'] == 2) { ?>
                                                 <td><?php echo $rep['p_extras']; ?></td>
-                                                <td class="noVer"><small>
+                                                <td class="noVer">
+                                                    <small>
                                                     <?php if ($rep['obs'] <> '') { ?>
-                                                        <a href="#obs<?php echo $rep['id']; ?>" data-rel="popup"
-                                                           data-transition="pop">Obs</a>
-                                                        <div data-role="popup" id="obs<?php echo $rep['id']; ?>"
-                                                             class="ui-content" style="font-size:14px;">
+                                                        <a href="#obs<?php echo $rep['id']; ?>" data-rel="popup" data-transition="pop">Obs</a>
+                                                        <div data-role="popup" id="obs<?php echo $rep['id']; ?>" class="ui-content" style="font-size:14px;">
                                                             <?php echo $rep['obs']; ?>
                                                         </div>
                                                     <?php } if ($rep['n_fol']<>'-') { $id_pros.=$rep['id'].'|'; ?>
                                                     <a href="info_ficha.php?id=<?php echo $rep['id']; ?>|&fec=<?php echo $_POST['ini']; ?>" target="new">Ficha</a>
                                                     <?php } ?>
-                                                    </small></td>
+                                                    </small>
+                                                </td>
                                             <?php } ?>
                                         </tr>
-
                                     <?php }
                                 } ?>
                                 </tbody>

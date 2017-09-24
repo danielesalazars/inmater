@@ -15,6 +15,15 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "lista.php",
+			"settings":
+			{
+				"buffer_size": 82678,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -57,8 +66,9 @@
 		"/C/xampp/htdocs/inmater/n_repro.php",
 		"/C/xampp/htdocs/inmater/e_repro.php",
 		"/C/xampp/htdocs/inmater/_database/db_tools.php",
-		"/C/xampp/htdocs/inmater/_themes/tema_inmater.css",
+		"/C/xampp/htdocs/inmater/e_gine.php",
 		"/C/xampp/htdocs/inmater/e_paci.php",
+		"/C/xampp/htdocs/inmater/_themes/tema_inmater.css",
 		"/C/xampp/htdocs/inmater/info_r.php",
 		"/C/xampp/htdocs/inmater/le_aspi6.php",
 		"/C/xampp/htdocs/inmater/.gitignore",
@@ -85,6 +95,27 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"'role'",
+			"role",
+			"Programación de Sala",
+			"programa",
+			"'repro'",
+			"\"repro\"",
+			"repro",
+			"updateGine",
+			"repro_lista",
+			"repro",
+			"$repro[",
+			"$repro",
+			"p_dni",
+			"updateRepro",
+			"idx",
+			"GUARDAR DATOS",
+			"insertRepro",
+			"$rPP",
+			"hidden",
+			"$rPP",
+			"Pareja",
 			"$rPP",
 			"Seleccione Pareja",
 			"$rPare",
@@ -130,8 +161,40 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "lista.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 82678,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								27514,
+								27521
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7181.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -184,24 +247,36 @@
 		"selected_items":
 		[
 			[
-				"tools",
-				"_database\\db_tools.php"
+				"lista.php",
+				"lista.php"
 			],
 			[
-				"n_repro.php",
-				"n_repro.php"
+				"e_paci",
+				"e_paci.php"
+			],
+			[
+				"e_gine.php",
+				"e_gine.php"
+			],
+			[
+				"tool",
+				"_database\\db_tools.php"
 			],
 			[
 				"e_repro.php",
 				"e_repro.php"
 			],
 			[
-				"tema_",
-				"_themes\\tema_inmater.css"
+				"n_repro.php",
+				"n_repro.php"
 			],
 			[
-				"e_paci",
-				"e_paci.php"
+				"tools",
+				"_database\\db_tools.php"
+			],
+			[
+				"tema_",
+				"_themes\\tema_inmater.css"
 			],
 			[
 				"gitig",
@@ -263,8 +338,8 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
-	"side_bar_width": 234.0,
+	"side_bar_visible": false,
+	"side_bar_width": 258.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
