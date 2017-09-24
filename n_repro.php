@@ -325,7 +325,7 @@ if (!file_exists("paci/" . $paci['dni'] . "/foto.jpg")) $foto_url = "_images/fot
                                         $rAspi->execute(array($repro['id']));
                                         $aspi = $rAspi->fetch(PDO::FETCH_ASSOC);
 
-                                        $rTran = $db->prepare("SELECT dia,beta FROM lab_aspira_T WHERE pro=?");
+                                        $rTran = $db->prepare("SELECT dia,beta FROM lab_aspira_t WHERE pro=?");
                                         $rTran->execute(array($aspi['pro']));
 
                                         if ($aspi['f_fin'] == "0000-00-00") $estado = 'En Laboratorio';

@@ -285,7 +285,7 @@
                 $rAnal_H = $db->prepare("SELECT DISTINCT hc_analisis.a_dni,hc_analisis.a_nom,hc_pare_paci.dni FROM hc_analisis,hc_pareja,hc_pare_paci WHERE hc_analisis.a_dni=hc_pareja.p_dni AND hc_pare_paci.p_dni=hc_pareja.p_dni AND CAST(a_fec AS DATE) = CAST(CURRENT_TIMESTAMP AS DATE) AND hc_analisis.a_med=?");
                 $rAnal_H->execute(array($login));
 
-                $rBeta = $db->prepare("SELECT beta FROM lab_aspira_T WHERE med=? AND beta=0");
+                $rBeta = $db->prepare("SELECT beta FROM lab_aspira_t WHERE med=? AND beta=0");
                 $rBeta->execute(array($login));
 
                 if ($rAnal->rowCount() > 0 or $rAnal_H->rowCount() > 0 or $rBeta->rowCount() > 0) {
