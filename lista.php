@@ -332,9 +332,14 @@
             if ($user['role'] == 2 or $user['role'] == 5) { // ************ LAB Y AGENDA **********************************************************************
                 if ($_POST['ini'] == "")
                     $_POST['ini'] = date("Y-m-d");
-                $rRepro = $db->prepare("SELECT SUBSTRING_INDEX(hc_reprod.f_asp,'T',-1) AS h_asp,h_tra,ape,nom,hc_reprod.id,hc_reprod.dni,hc_reprod.med,don,hc_reprod.p_dni,hc_reprod.t_mue,hc_reprod.n_fol,hc_reprod.p_dni_het,hc_reprod.p_od,hc_reprod.p_cic,hc_reprod.p_fiv,hc_reprod.p_icsi,hc_reprod.p_cri,hc_reprod.p_iiu,hc_reprod.p_don,hc_reprod.des_don,hc_reprod.des_dia,hc_reprod.obs,hc_reprod.p_extras FROM hc_paciente,hc_reprod WHERE hc_reprod.des_don is null AND hc_paciente.dni=hc_reprod.dni AND (SUBSTRING_INDEX(hc_reprod.f_asp,'T',1) = ? OR hc_reprod.f_tra=?) AND hc_reprod.cancela <> 1 UNION SELECT CONCAT(hc_gineco.in_h2,':',hc_gineco.in_m2) AS h_asp,NULL AS h_tra,ape,nom,hc_gineco.id,hc_gineco.dni,hc_gineco.med,hc_gineco.in_t AS don,NULL AS p_dni,'x' AS t_mue,'-' AS n_fol,NULL AS p_dni_het,NULL AS p_od,NULL AS p_cic,NULL AS p_fiv,NULL AS p_icsi,NULL AS p_cri,NULL AS p_iiu,NULL AS p_don,NULL AS des_don,NULL AS des_dia,NULL AS obs,NULL AS p_extras FROM hc_paciente,hc_gineco WHERE hc_paciente.dni=hc_gineco.dni AND hc_gineco.in_f2 = ? AND hc_gineco.in_c=1 UNION SELECT CONCAT(hc_urolo.in_h2,':',hc_urolo.in_m2) AS h_asp,NULL AS h_tra,hc_pareja.p_ape AS ape,hc_pareja.p_nom AS nom,hc_urolo.id,hc_urolo.p_dni AS dni,hc_urolo.med,hc_urolo.in_t AS don,NULL AS p_dni,'x' AS t_mue,'-' AS n_fol,NULL AS p_dni_het,NULL AS p_od,NULL AS p_cic,NULL AS p_fiv,NULL AS p_icsi,NULL AS p_cri,NULL AS p_iiu,NULL AS p_don,NULL AS des_don,NULL AS des_dia,NULL AS obs,NULL AS p_extras FROM hc_pareja,hc_urolo WHERE hc_pareja.p_dni=hc_urolo.p_dni AND hc_urolo.in_f2 = ?");
-                print($_POST['ini']);
-                $rRepro->execute(array($_POST['ini'], $_POST['ini'], $_POST['ini'], $_POST['ini']));
+                // lista de programaciones(lab=2, agenda=5)
+                if ($user['role'] == 2) {
+                    $rRepro = $db->prepare("SELECT SUBSTRING_INDEX(hc_reprod.f_asp,'T',-1) AS h_asp,h_tra,ape,nom,hc_reprod.id,hc_reprod.dni,hc_reprod.med,don,hc_reprod.p_dni,hc_reprod.t_mue,hc_reprod.n_fol,hc_reprod.p_dni_het,hc_reprod.p_od,hc_reprod.p_cic,hc_reprod.p_fiv,hc_reprod.p_icsi,hc_reprod.p_cri,hc_reprod.p_iiu,hc_reprod.p_don,hc_reprod.des_don,hc_reprod.des_dia,hc_reprod.obs,hc_reprod.p_extras FROM hc_paciente,hc_reprod WHERE /*hc_reprod.des_don is null AND*/ hc_paciente.dni=hc_reprod.dni AND (SUBSTRING_INDEX(hc_reprod.f_asp,'T',1) = ? OR hc_reprod.f_tra=?) AND hc_reprod.cancela <> 1 UNION SELECT CONCAT(hc_gineco.in_h2,':',hc_gineco.in_m2) AS h_asp,NULL AS h_tra,ape,nom,hc_gineco.id,hc_gineco.dni,hc_gineco.med,hc_gineco.in_t AS don,NULL AS p_dni,'x' AS t_mue,'-' AS n_fol,NULL AS p_dni_het,NULL AS p_od,NULL AS p_cic,NULL AS p_fiv,NULL AS p_icsi,NULL AS p_cri,NULL AS p_iiu,NULL AS p_don,NULL AS des_don,NULL AS des_dia,NULL AS obs,NULL AS p_extras FROM hc_paciente,hc_gineco WHERE hc_paciente.dni=hc_gineco.dni AND hc_gineco.in_f2 = ? AND hc_gineco.in_c=1 UNION SELECT CONCAT(hc_urolo.in_h2,':',hc_urolo.in_m2) AS h_asp,NULL AS h_tra,hc_pareja.p_ape AS ape,hc_pareja.p_nom AS nom,hc_urolo.id,hc_urolo.p_dni AS dni,hc_urolo.med,hc_urolo.in_t AS don,NULL AS p_dni,'x' AS t_mue,'-' AS n_fol,NULL AS p_dni_het,NULL AS p_od,NULL AS p_cic,NULL AS p_fiv,NULL AS p_icsi,NULL AS p_cri,NULL AS p_iiu,NULL AS p_don,NULL AS des_don,NULL AS des_dia,NULL AS obs,NULL AS p_extras FROM hc_pareja,hc_urolo WHERE hc_pareja.p_dni=hc_urolo.p_dni AND hc_urolo.in_f2 = ?");
+                    $rRepro->execute(array($_POST['ini'], $_POST['ini'], $_POST['ini'], $_POST['ini']));
+                } else {
+                    $rRepro = $db->prepare("SELECT SUBSTRING_INDEX(hc_reprod.f_asp,'T',-1) AS h_asp,h_tra,ape,nom,hc_reprod.id,hc_reprod.dni,hc_reprod.med,don,hc_reprod.p_dni,hc_reprod.t_mue,hc_reprod.n_fol,hc_reprod.p_dni_het,hc_reprod.p_od,hc_reprod.p_cic,hc_reprod.p_fiv,hc_reprod.p_icsi,hc_reprod.p_cri,hc_reprod.p_iiu,hc_reprod.p_don,hc_reprod.des_don,hc_reprod.des_dia,hc_reprod.obs,hc_reprod.p_extras FROM hc_paciente,hc_reprod WHERE hc_reprod.des_don is null AND hc_paciente.dni=hc_reprod.dni AND (SUBSTRING_INDEX(hc_reprod.f_asp,'T',1) = ? OR hc_reprod.f_tra=?) AND hc_reprod.cancela <> 1 UNION SELECT CONCAT(hc_gineco.in_h2,':',hc_gineco.in_m2) AS h_asp,NULL AS h_tra,ape,nom,hc_gineco.id,hc_gineco.dni,hc_gineco.med,hc_gineco.in_t AS don,NULL AS p_dni,'x' AS t_mue,'-' AS n_fol,NULL AS p_dni_het,NULL AS p_od,NULL AS p_cic,NULL AS p_fiv,NULL AS p_icsi,NULL AS p_cri,NULL AS p_iiu,NULL AS p_don,NULL AS des_don,NULL AS des_dia,NULL AS obs,NULL AS p_extras FROM hc_paciente,hc_gineco WHERE hc_paciente.dni=hc_gineco.dni AND hc_gineco.in_f2 = ? AND hc_gineco.in_c=1 UNION SELECT CONCAT(hc_urolo.in_h2,':',hc_urolo.in_m2) AS h_asp,NULL AS h_tra,hc_pareja.p_ape AS ape,hc_pareja.p_nom AS nom,hc_urolo.id,hc_urolo.p_dni AS dni,hc_urolo.med,hc_urolo.in_t AS don,NULL AS p_dni,'x' AS t_mue,'-' AS n_fol,NULL AS p_dni_het,NULL AS p_od,NULL AS p_cic,NULL AS p_fiv,NULL AS p_icsi,NULL AS p_cri,NULL AS p_iiu,NULL AS p_don,NULL AS des_don,NULL AS des_dia,NULL AS obs,NULL AS p_extras FROM hc_pareja,hc_urolo WHERE hc_pareja.p_dni=hc_urolo.p_dni AND hc_urolo.in_f2 = ?");
+                    $rRepro->execute(array($_POST['ini'], $_POST['ini'], $_POST['ini'], $_POST['ini']));
+                }
                 $Rcap = $db->prepare("SELECT p_dni,iiu,pro,h_cap FROM lab_andro_cap WHERE fec=? AND iiu>0 ORDER BY fec DESC");// capacitacion con IIU
                 $Rcap->execute(array($_POST['ini']));
                 if ($user['role'] == 5) {
@@ -358,7 +363,6 @@
                         <?php } ?>
                         </div>
                     <?php
-                        print($rRepro->rowCount());
                         if ($rRepro->rowCount() > 0) { ?>
                         <h3>Programación de Sala</h3>
                         <div class="scroll_h">
@@ -415,15 +419,40 @@
                                                     $url = "le_aspi" . $dias . ".php?rep=" . $rep['id'];
                                                     echo '<a href=' . $url . ' rel="external">';
                                                     if ($rep['p_cic'] >= 1) echo "Ciclo Natural<br>";
-                                                    if ($rep['p_fiv'] >= 1) echo "FIV<br>";
-                                                    if ($rep['p_icsi'] >= 1) echo "ICSI<br>";
+                                                    //laboratorio=2, agenda=5
+                                                    if ($rep['p_fiv'] >= 1) {
+                                                        if ($user['role'] == 2) {
+                                                            echo "FIV<br>";
+                                                        } else {
+                                                            echo "ASPIRACION<br>";
+                                                        }
+                                                    }
+                                                    if ($rep['p_icsi'] >= 1){
+                                                        if ($user['role'] == 2) {
+                                                            echo "ICSI<br>";
+                                                        } else {
+                                                            echo "ASPIRACION<br>";
+                                                        }
+                                                    }
                                                     if ($rep['p_od'] <> '') echo "OD Fresco<br>";
                                                     if ($rep['p_cri'] >= 1) echo "Crio Ovulos<br>";
                                                     if ($rep['p_iiu'] >= 1) echo "IIU<br>";
                                                     if ($rep['p_don'] == 1) echo "Donación Fresco<br>";
-                                                    if ($rep['des_don'] == null and $rep['des_dia'] >= 1) echo "TED<br>";
+                                                    if ($rep['des_don'] == null and $rep['des_dia'] >= 1){
+                                                        if ($user['role'] == 2) {
+                                                            echo "TED<br>";
+                                                        } else {
+                                                            echo "TRANSFERENCIA<br>";
+                                                        }
+                                                    }
                                                     if ($rep['des_don'] == null and $rep['des_dia'] === 0) echo "<small>Descongelación Ovulos Propios</small><br>";
-                                                    if ($rep['des_don'] <> null and $rep['des_dia'] >= 1) echo "EMBRIOADOPCIÓN<br>";
+                                                    if ($rep['des_don'] <> null and $rep['des_dia'] >= 1){
+                                                        if ($user['role'] == 2) {
+                                                            echo "EMBRIOADOPCIÓN<br>";
+                                                        } else {
+                                                            echo "TRANSFERENCIA<br>";
+                                                        }
+                                                    }
                                                     if ($rep['des_don'] <> null and $rep['des_dia'] === 0) echo "<small>Descongelación Ovulos Donados</small><br>";
                                                     echo '</a>';
                                                 }

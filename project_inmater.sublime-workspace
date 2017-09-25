@@ -16,11 +16,10 @@
 	"buffers":
 	[
 		{
-			"file": "lista.php",
+			"contents": "\n\nALTER TABLE inmater.hc_paciente ADD idsedes INT NULL ;\n\n190.236.140.144\n",
 			"settings":
 			{
-				"buffer_size": 82678,
-				"encoding": "UTF-8",
+				"buffer_size": 74,
 				"line_ending": "Windows"
 			}
 		}
@@ -63,11 +62,14 @@
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/inmater/n_repro.php",
-		"/C/xampp/htdocs/inmater/e_repro.php",
 		"/C/xampp/htdocs/inmater/_database/db_tools.php",
-		"/C/xampp/htdocs/inmater/e_gine.php",
+		"/C/xampp/htdocs/inmater/lista.php",
+		"/C/Users/Jose/Downloads/0002_add_sede.sql",
 		"/C/xampp/htdocs/inmater/e_paci.php",
+		"/C/xampp/htdocs/inmater/e_repro.php",
+		"/C/Users/Jose/Desktop/0002_add_sede.sql",
+		"/C/xampp/htdocs/inmater/n_repro.php",
+		"/C/xampp/htdocs/inmater/e_gine.php",
 		"/C/xampp/htdocs/inmater/_themes/tema_inmater.css",
 		"/C/xampp/htdocs/inmater/info_r.php",
 		"/C/xampp/htdocs/inmater/le_aspi6.php",
@@ -75,7 +77,6 @@
 		"/C/xampp/htdocs/inmater/lista_pro.php",
 		"/C/xampp/htdocs/inmater/API Project-3c4c0633fed4.p12",
 		"/C/xampp/htdocs/inmater/le_aspi0.php",
-		"/C/xampp/htdocs/inmater/lista.php",
 		"/C/Users/Jose/Documents/Data/Learning/ionic.txt"
 	],
 	"find":
@@ -84,7 +85,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 90.0,
+		"height": 104.0,
 		"where_history":
 		[
 			""
@@ -95,6 +96,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"print",
+			"lab_aspira_t",
+			"$rRepro",
+			"programaci",
+			"$rRepro",
+			"$cap",
+			"$rRepro",
+			"sede",
+			"$paci",
+			"nombres",
+			"sedes",
 			"'role'",
 			"role",
 			"Programación de Sala",
@@ -166,30 +178,27 @@
 			[
 				{
 					"buffer": 0,
-					"file": "lista.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 82678,
+						"buffer_size": 74,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								27514,
-								27521
+								73,
+								58
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true,
-							"word_wrap": false
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 7181.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -247,8 +256,20 @@
 		"selected_items":
 		[
 			[
+				"tool",
+				"_database\\db_tools.php"
+			],
+			[
 				"lista.php",
 				"lista.php"
+			],
+			[
+				"e_repro.php",
+				"e_repro.php"
+			],
+			[
+				"e_paci.php",
+				"e_paci.php"
 			],
 			[
 				"e_paci",
@@ -257,14 +278,6 @@
 			[
 				"e_gine.php",
 				"e_gine.php"
-			],
-			[
-				"tool",
-				"_database\\db_tools.php"
-			],
-			[
-				"e_repro.php",
-				"e_repro.php"
 			],
 			[
 				"n_repro.php",
