@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"if",
+				"ifelse\tif … else …"
+			],
+			[
+				"Tra",
+				"TRANSFERENCIA"
+			],
+			[
 				"var",
 				"var_dump"
 			],
@@ -62,8 +70,8 @@
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/inmater/_database/db_tools.php",
 		"/C/xampp/htdocs/inmater/lista.php",
+		"/C/xampp/htdocs/inmater/_database/db_tools.php",
 		"/C/Users/Jose/Downloads/0002_add_sede.sql",
 		"/C/xampp/htdocs/inmater/e_paci.php",
 		"/C/xampp/htdocs/inmater/e_repro.php",
@@ -96,6 +104,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"program",
+			"$rRepro",
 			"print",
 			"lab_aspira_t",
 			"$rRepro",
@@ -188,8 +198,8 @@
 						"selection":
 						[
 							[
-								73,
-								58
+								74,
+								74
 							]
 						],
 						"settings":
@@ -255,6 +265,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"lista",
+				"lista.php"
+			],
 			[
 				"tool",
 				"_database\\db_tools.php"

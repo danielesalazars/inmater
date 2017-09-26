@@ -1864,6 +1864,18 @@
 </div><!-- /page -->
 <script>
     $(document).on("click", ".show-page-loading-msg", function () {
+        if (document.getElementById("repro").value == "") {
+            alert("Debe ingresar la Reproducción Asistida");
+            return false;
+        }        
+        if (document.getElementById("p_dnix").value == "") {
+            alert("Debe ingresar la Pareja");
+            return false;
+        }
+        if (document.getElementById("t_muex").value == "") {
+            alert("Debe ingresar el tipo de Muestra");
+            return false;
+        }
         if (document.getElementById("cancela").checked == true && document.getElementById("obs").value == "") {
             alert("Debe ingresar en Observaciones el motivo de la cancelación");
             return false;
