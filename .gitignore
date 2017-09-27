@@ -4,3 +4,5 @@ legal/*
 _database/*
 Dockerfile
 informacion.php
+*.sublime-project
+*.sublime-workspace
